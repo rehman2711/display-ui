@@ -1,0 +1,396 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "display-ui",
+  "homepage": "https://display-ui.vercel.app/",
+  "items": [
+    {
+      "name": "Accordion",
+      "type": "registry:component",
+      "dependencies": ["lucide-react", "class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/Accordion.tsx",
+          "type": "registry:lib",
+          "target": "components/display-ui/Accordion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "AlertDialog",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/AlertDialog.tsx",
+          "type": "registry:lib",
+          "target": "components/display-ui/AlertDialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "Avatar",
+      "type": "registry:component",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/Avatar.tsx",
+          "type": "registry:lib",
+          "target": "components/display-ui/Avatar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "Badge",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/Badge.tsx",
+          "type": "registry:lib",
+          "target": "components/display-ui/Badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "Breadcrumb",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/Breadcrumb.tsx",
+          "type": "registry:lib",
+          "target": "components/display-ui/Breadcrumb.tsx"
+        }
+      ]
+    },
+    {
+      "name": "Button",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/Button.tsx",
+          "type": "registry:lib",
+          "target": "components/display-ui/Button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ButtonRing",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/ButtonRing.tsx",
+          "type": "registry:lib",
+          "target": "components/display-ui/ButtonRing.tsx"
+        }
+      ]
+    },
+    {
+      "name": "Calendar",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/Calendar.tsx",
+          "type": "registry:lib",
+          "target": "components/display-ui/Calendar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "Card",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/Card.tsx",
+          "type": "registry:lib",
+          "target": "components/display-ui/Card.tsx"
+        },
+        {
+          "path": "registry/default/displayui/ButtonRing.tsx",
+          "type": "registry:lib",
+          "target": "components/display-ui/ButtonRing.tsx"
+        }
+      ]
+    },
+    {
+      "name": "Carousel",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/Carousel.tsx",
+          "type": "registry:lib",
+          "target" : "components/display-ui/Carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "CheckBox",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/CheckBox.tsx",
+          "type": "registry:lib",
+          "target" : "components/display-ui/CheckBox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "Drawer",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/Drawer.tsx",
+          "type": "registry:lib",
+          "target" : "components/display-ui/Drawer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "DropdownMenu",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/DropdownMenu.tsx",
+          "type": "registry:lib",
+          "target" : "components/display-ui/DropdownMenu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "InfiniteCarousel",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/InfiniteCarousel.tsx",
+          "type": "registry:lib",
+          "target" : "components/display-ui/InfiniteCarousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "Input",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/Input.tsx",
+          "type": "registry:lib",
+          "target" : "components/display-ui/Input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "InputOTP",
+      "type": "registry:component",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/InputOTP.tsx",
+          "type": "registry:lib",
+          "target" : "components/display-ui/InputOTP.tsx"
+        }
+      ]
+    },
+    {
+      "name": "Label",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/Label.tsx",
+          "type": "registry:lib",
+          "target" : "components/display-ui/Label.tsx"
+        }
+      ]
+    },
+    {
+      "name": "NavigationMenu",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/NavigationMenu.tsx",
+          "type": "registry:lib",
+          "target" : "components/display-ui/NavigationMenu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "NavigationMenuMac",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/NavigationMenuMac.tsx",
+          "type": "registry:lib",
+          "target" : "components/display-ui/NavigationMenuMac.tsx"
+        }
+      ]
+    },
+    {
+      "name": "RadioGroups",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/RadioGroups.tsx",
+          "type": "registry:lib",
+          "target" : "components/display-ui/RadioGroups.tsx"
+        }
+      ]
+    },
+    {
+      "name": "Separator",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/Separator.tsx",
+          "type": "registry:lib",
+          "target" : "components/display-ui/Separator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "Table",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/Table.tsx",
+          "type": "registry:lib",
+          "target" : "components/display-ui/Table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "Toaster",
+      "type": "registry:component",
+      "dependencies": ["lucide-react", "framer-motion"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/Toaster.tsx",
+          "type": "registry:lib",
+          "target" : "components/display-ui/Toaster.tsx"
+        }
+      ]
+    },
+    {
+      "name": "Tooltip",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+         "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/displayui/Tooltip.tsx",
+          "type": "registry:lib",
+          "target" : "components/display-ui/Tooltip.tsx"
+        }
+      ]
+    }
+  ]
+}

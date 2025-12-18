@@ -1,0 +1,129 @@
+---
+title: Card
+description: A visually distinct container for grouping related content, such as images, text, and actions, in a structured layout.
+---
+
+<ComponentPreview name="CardDemo" description=" A Card Component ." />
+
+## Installation
+
+<ComponentInstall>
+
+<CLIInstall>
+  
+```bash
+npx shadcn@latest add https://display-ui.vercel.app/r/Card
+```
+
+</CLIInstall>
+
+<ManualInstall>
+
+<Steps>
+
+<Step>
+
+Install the following dependencies
+
+</Step>
+
+```bash
+npm install class-variance-authority
+```
+
+<Step>
+
+Copy and paste the following code into your project
+
+</Step>
+
+<ComponentSource title="components/ui/Card.tsx" name="Card" />
+
+<Step>
+
+Update the import paths to match your project setup
+
+</Step>
+
+</Steps>
+
+</ManualInstall>
+
+</ComponentInstall>
+
+## Usage
+
+```tsx
+import { Card } from "@/components/display-ui/Card"
+```
+
+```tsx
+<Card.Main className="bg-white w-[80%]" shadow="md">
+  <Card.Area className="">
+    <Card.Image
+      className="scale-100"
+      radius="none"
+      fit="cover"
+      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ></Card.Image>
+  </Card.Area>
+  <Card.Area className="p-4">
+    <div className="space-y-4">
+      <h2 className="text-xl font-bold">Card Section</h2>
+      <p className="text-md">
+        A card component is a reusable UI element used to group related
+        content{" "}
+      </p>
+
+      <div className="flex justify-center">
+        <ButtonRing size="sm" variant="success" className="my-2">
+          Hire Me
+        </ButtonRing>
+      </div>
+    </div>
+  </Card.Area>
+</Card.Main>
+```
+
+## API
+
+### Card Props
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | ReactNode[]",
+      description: "The contents of the component . Usually the name of button",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "ReactNode | ReactNode[]",
+      description: "The extra classes for user modification .",
+      default: "-",
+    },
+    {
+      attribute: "variant",
+      type: "solid | outline | ghost | link",
+      description: "The button appearance style.",
+      default: "solid",
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The button size on viewport.",
+      default: "md",
+    },
+    {
+      attribute: "radius",
+      type: "sm | md | lg | xl | full",
+      description: "The button radius on viewport.",
+      default: "md",
+    },
+  ]}
+/>
+
+## Credits
+
+This component is inspired by [Rehman Kalawant Design Shared On Github](https://github.com/rehman2711/display-ui).

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "NavigationMenu",
+  "type": "registry:component",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\r\nimport { twMerge } from \"tailwind-merge\"\r\n\r\nexport function cn(...inputs: ClassValue[]) {\r\n  return twMerge(clsx(inputs))\r\n}\r\n",
+      "type": "registry:lib"
+    },
+    {
+      "path": "registry/default/displayui/NavigationMenu.tsx",
+      "content": "\"use client\";\r\n\r\nimport { ComponentProps, forwardRef, ReactNode } from \"react\";\r\nimport { cva, VariantProps } from \"class-variance-authority\";\r\nimport { cn } from \"@/registry/lib/utils\";\r\n\r\n/* ---------- Menu Bar ---------- */\r\ntype NavigationMenuBarProps = ComponentProps<\"div\"> & { children: ReactNode };\r\n\r\nexport const NavigationMenuBar = forwardRef<\r\n  HTMLDivElement,\r\n  NavigationMenuBarProps\r\n>(({ children, className, ...props }, ref) => (\r\n  <div\r\n    ref={ref}\r\n    className={cn(\r\n      \"w-full h-14 px-4 rounded\",\r\n      \"flex items-center justify-between gap-6\",\r\n      \"bg-black text-white text-sm shadow-md\",\r\n      className\r\n    )}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </div>\r\n));\r\nNavigationMenuBar.displayName = \"NavigationMenuBar\";\r\n\r\n/* ---------- Menu Item ---------- */\r\nconst navigationMenuItemVariant = cva([\r\n  \"text-white hover:text-gray-300 transition-colors\",\r\n]);\r\n\r\ntype NavigationMenuItemProps = ComponentProps<\"a\"> & {\r\n  children: ReactNode;\r\n} & VariantProps<typeof navigationMenuItemVariant>;\r\n\r\nexport const NavigationMenuItem = forwardRef<\r\n  HTMLAnchorElement,\r\n  NavigationMenuItemProps\r\n>(({ children, className, ...props }, ref) => (\r\n  <a\r\n    ref={ref}\r\n    className={cn(navigationMenuItemVariant(), className)}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </a>\r\n));\r\nNavigationMenuItem.displayName = \"NavigationMenuItem\";\r\n\r\n/* ---------- Menu Logo ---------- */\r\ntype NavigationMenuLogoProps = ComponentProps<\"img\">;\r\n\r\nexport const NavigationMenuLogo = forwardRef<\r\n  HTMLImageElement,\r\n  NavigationMenuLogoProps\r\n>(({ className, ...props }, ref) => (\r\n  <img\r\n    ref={ref}\r\n    className={cn(\"h-10 w-auto object-contain select-none\", className)}\r\n    {...props}\r\n  />\r\n));\r\nNavigationMenuLogo.displayName = \"NavigationMenuLogo\";\r\n",
+      "type": "registry:lib",
+      "target": "components/display-ui/NavigationMenu.tsx"
+    }
+  ]
+}

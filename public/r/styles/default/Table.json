@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "Table",
+  "type": "registry:component",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\r\nimport { twMerge } from \"tailwind-merge\"\r\n\r\nexport function cn(...inputs: ClassValue[]) {\r\n  return twMerge(clsx(inputs))\r\n}\r\n",
+      "type": "registry:lib"
+    },
+    {
+      "path": "registry/default/displayui/Table.tsx",
+      "content": "\"use client\";\r\n\r\nimport { ComponentProps, ReactNode, forwardRef } from \"react\";\r\nimport { cn } from \"@/registry/lib/utils\";\r\n\r\n/* ---------- Table ---------- */\r\ntype TableProps = ComponentProps<\"table\"> & { children?: ReactNode };\r\n\r\nexport const Table = forwardRef<HTMLTableElement, TableProps>(\r\n  ({ className, children, ...props }, ref) => (\r\n    <div className=\"overflow-hidden rounded-xl border border-border bg-card shadow-sm\">\r\n      <table\r\n        ref={ref}\r\n        className={cn(\"w-full caption-bottom text-sm\", className)}\r\n        {...props}\r\n      >\r\n        {children}\r\n      </table>\r\n    </div>\r\n  )\r\n);\r\nTable.displayName = \"Table\";\r\n\r\n/* ---------- Table Head ---------- */\r\ntype TableHeadProps = ComponentProps<\"thead\"> & { children?: ReactNode };\r\n\r\nexport const TableHead = forwardRef<HTMLTableSectionElement, TableHeadProps>(\r\n  ({ className, children, ...props }, ref) => (\r\n    <thead\r\n      ref={ref}\r\n      className={cn(\r\n        \"bg-muted/50 text-xs font-medium text-black [&_th]:h-12 [&_th]:px-4 [&_th]:text-left\",\r\n        className\r\n      )}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </thead>\r\n  )\r\n);\r\nTableHead.displayName = \"TableHead\";\r\n\r\n/* ---------- Table Body ---------- */\r\ntype TableBodyProps = ComponentProps<\"tbody\"> & { children?: ReactNode };\r\n\r\nexport const TableBody = forwardRef<HTMLTableSectionElement, TableBodyProps>(\r\n  ({ className, children, ...props }, ref) => (\r\n    <tbody\r\n      ref={ref}\r\n      className={cn(\"[&_tr:last-child]:border-0\", className)}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </tbody>\r\n  )\r\n);\r\nTableBody.displayName = \"TableBody\";\r\n\r\n/* ---------- Table Row ---------- */\r\ntype TableRowProps = ComponentProps<\"tr\"> & { children?: ReactNode };\r\n\r\nexport const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(\r\n  ({ className, children, ...props }, ref) => (\r\n    <tr\r\n      ref={ref}\r\n      className={cn(\r\n        \"border-b transition-colors !hover:bg-yellow-500 data-[state=selected]:bg-muted\",\r\n        className\r\n      )}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </tr>\r\n  )\r\n);\r\nTableRow.displayName = \"TableRow\";\r\n\r\n/* ---------- Table Head Cell (th) ---------- */\r\ntype TableHeadCellProps = ComponentProps<\"th\"> & { children?: ReactNode };\r\n\r\nexport const TableHeadCell = forwardRef<\r\n  HTMLTableHeaderCellElement,\r\n  TableHeadCellProps\r\n>(({ className, children, ...props }, ref) => (\r\n  <th\r\n    ref={ref}\r\n    className={cn(\"px-4 py-2 text-left align-middle font-medium\", className)}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </th>\r\n));\r\nTableHeadCell.displayName = \"TableHeadCell\";\r\n\r\n/* ---------- Table Cell (td) ---------- */\r\ntype TableCellProps = ComponentProps<\"td\"> & { children?: ReactNode };\r\n\r\nexport const TableCell = forwardRef<HTMLTableCellElement, TableCellProps>(\r\n  ({ className, children, ...props }, ref) => (\r\n    <td\r\n      ref={ref}\r\n      className={cn(\"px-4 py-3 align-middle text-black \", className)}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </td>\r\n  )\r\n);\r\nTableCell.displayName = \"TableCell\";\r\n",
+      "type": "registry:lib",
+      "target": "components/display-ui/Table.tsx"
+    }
+  ]
+}

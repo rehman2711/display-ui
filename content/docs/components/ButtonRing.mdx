@@ -1,0 +1,131 @@
+---
+title: Button Ring
+description: A circular, outlined button style often used for icon buttons, secondary actions, or floating UI controls.
+---
+
+<ComponentPreview name="ButtonRingDemo" description=" A Button Ring Component ." />
+
+## Installation
+
+<ComponentInstall>
+
+<CLIInstall>
+  
+```bash
+npx shadcn@latest add https://display-ui.vercel.app/r/ButtonRing
+```
+
+</CLIInstall>
+
+<ManualInstall>
+
+<Steps>
+
+<Step>
+
+Install the following dependencies
+
+</Step>
+
+```bash
+npm install class-variance-authority
+```
+
+<Step>
+
+Copy and paste the following code into your project
+
+</Step>
+
+<ComponentSource title="components/ui/ButtonRing.tsx" name="ButtonRing"/>
+
+<Step>
+
+Update the import paths to match your project setup
+
+</Step>
+
+</Steps>
+
+</ManualInstall>
+
+</ComponentInstall>
+
+## Usage
+
+```tsx
+import { ButtonRing } from "@/components/display-ui/ButtonRing"
+```
+
+```tsx
+<Button>Button</Button>
+```
+
+## API
+
+### Button Props
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | ReactNode[]",
+      description:
+        "The contents of the component . Usually the name of button",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "ReactNode | ReactNode[]",
+      description: "The extra classes for user modification .",
+      default: "-",
+    },
+    {
+      attribute: "variant",
+      type: "solid | outline | ghost | link",
+      description: "The button appearance style.",
+      default: "solid",
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The button size on viewport.",
+      default: "md",
+    },
+    ,
+    {
+      attribute: "RingOff",
+      type: "custom (in number) (in ms)",
+      description: "The time after the ring get turned off.",
+      default: "-",
+    },
+    {
+      attribute: "radius",
+      type: "sm | md | lg | xl | full",
+      description: "The button radius on viewport.",
+      default: "md",
+    }
+  ]}
+/>
+
+## Examples
+
+### Default
+
+<ComponentPreview title="" name="ButtonRingDefaultDemo" />
+
+### Solid
+
+<ComponentPreview name="ButtonRingSolidDemo" />
+
+### Success
+
+<ComponentPreview name="ButtonRingSuccessDemo" />
+
+### Danger
+
+<ComponentPreview name="ButtonRingDangerDemo" />
+
+## Credits
+
+This component is inspired by [Rehman Kalawant Design Shared On Github](https://github.com/rehman2711/display-ui).

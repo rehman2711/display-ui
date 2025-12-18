@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "Badge",
+  "type": "registry:component",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\r\nimport { twMerge } from \"tailwind-merge\"\r\n\r\nexport function cn(...inputs: ClassValue[]) {\r\n  return twMerge(clsx(inputs))\r\n}\r\n",
+      "type": "registry:lib"
+    },
+    {
+      "path": "registry/default/displayui/Badge.tsx",
+      "content": "\"use client\";\r\n\r\nimport { cva, VariantProps } from \"class-variance-authority\";\r\nimport { ComponentProps, forwardRef } from \"react\";\r\nimport { cn } from \"@/registry/lib/utils\";\r\nconst badgeVariant = cva([\"px-3 py-1 text-white\"], {\r\n  variants: {\r\n    variant: {\r\n      primary: \"bg-blue-500 text-sm \",\r\n      danger: \"bg-red-500 text-sm\",\r\n      success: \"bg-green-500 text-sm\",\r\n      warning: \"bg-yellow-400 text-sm\",\r\n    },\r\n    radius: {\r\n      sm: \"rounded-sm\",\r\n      md: \"rounded-md\",\r\n      lg: \"rounded-lg\",\r\n      pill: \"rounded-full\",\r\n    },\r\n  },\r\n  defaultVariants: {\r\n    variant: \"primary\",\r\n    radius: \"md\",\r\n  },\r\n});\r\n\r\ntype BadgeProps = ComponentProps<\"span\"> & VariantProps<typeof badgeVariant>;\r\n\r\nexport const Badge = forwardRef<HTMLSpanElement, BadgeProps>(\r\n  ({ variant, radius, className, ...props }, ref) => {\r\n    return (\r\n      <span\r\n        className={cn(badgeVariant({ variant, radius }), className)}\r\n        ref={ref}\r\n        {...props}\r\n      />\r\n    );\r\n  }\r\n);\r\n\r\nBadge.displayName = \"Badge\"\r\n",
+      "type": "registry:lib",
+      "target": "components/display-ui/Badge.tsx"
+    }
+  ]
+}

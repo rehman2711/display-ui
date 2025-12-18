@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ButtonRing",
+  "type": "registry:component",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\r\nimport { twMerge } from \"tailwind-merge\"\r\n\r\nexport function cn(...inputs: ClassValue[]) {\r\n  return twMerge(clsx(inputs))\r\n}\r\n",
+      "type": "registry:lib"
+    },
+    {
+      "path": "registry/default/displayui/ButtonRing.tsx",
+      "content": "\"use client\";\r\n\r\nimport { ComponentProps, forwardRef, useRef, useState } from \"react\";\r\nimport { cva, VariantProps } from \"class-variance-authority\";\r\nimport { cn } from \"@/registry/lib/utils\";\r\nconst buttonVariants = cva(\r\n  [\r\n    \"bg-black text-white border-2 border-transparent rounded-md transition-all duration-300\",\r\n  ],\r\n  {\r\n    variants: {\r\n      variant: {\r\n        solid: \"focus:border-white bg-black focus:ring-black\",\r\n        primary: \"focus:border-white bg-blue-500  focus:ring-blue-500\",\r\n        success: \"focus:border-white  bg-green-500 focus:ring-green-500\",\r\n        danger: \"focus:border-white  bg-red-500 focus:ring-red-500\",\r\n      },\r\n      size: {\r\n        sm: \"px-4 py-2 text-sm\",\r\n        md: \"px-4 py-2 text-base\",\r\n        lg: \"px-6 py-3 text-lg\",\r\n      },\r\n      radius: {\r\n        sm: \"rounded-sm\",\r\n        md: \"rounded-md\",\r\n        lg: \"rounded-lg\",\r\n        xl: \"rounded-xl\",\r\n        full: \"rounded-full\",\r\n      },\r\n    },\r\n    defaultVariants: {\r\n      variant: \"solid\",\r\n      size: \"md\",\r\n      radius: \"md\",\r\n    },\r\n  }\r\n);\r\n\r\ntype ButtonProps = ComponentProps<\"button\"> &\r\n  VariantProps<typeof buttonVariants>;\r\n\r\nexport const ButtonRing = forwardRef<HTMLButtonElement, ButtonProps>(\r\n  ({ variant, size, radius, className, ...props }, ref) => {\r\n    const btnRef = useRef<HTMLButtonElement>(null);\r\n    const [activeRing, setActiveRing] = useState(false);\r\n\r\n    const handleClick = () => {\r\n      setActiveRing(true);\r\n      btnRef.current?.focus();\r\n\r\n      setTimeout(() => {\r\n        setActiveRing(false);\r\n        btnRef.current?.blur();\r\n      }, 5000);\r\n    };\r\n\r\n    return (\r\n      <button\r\n        ref={(node) => {\r\n          btnRef.current = node;\r\n          if (typeof ref === \"function\") ref(node);\r\n          else if (ref) ref.current = node;\r\n        }}\r\n        className={cn(\r\n          buttonVariants({ variant, size, radius, className }),\r\n          activeRing && \"ring-2\"\r\n        )}\r\n        onClick={(e) => {\r\n          handleClick();\r\n          props.onClick?.(e);\r\n        }}\r\n        {...props}\r\n      >\r\n        {props.children}\r\n      </button>\r\n    );\r\n  }\r\n);\r\n\r\nButtonRing.displayName=\"ButtonRing\"\r\n",
+      "type": "registry:lib",
+      "target": "components/display-ui/ButtonRing.tsx"
+    }
+  ]
+}

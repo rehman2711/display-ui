@@ -1,0 +1,134 @@
+---
+title: Toaster
+description: Shows brief, non-intrusive notifications to inform users of actions, errors, or system feedback.
+---
+
+<ComponentPreview name="ToasterDemo" description=" A Toaster Component ." />
+
+## Installation
+
+<ComponentInstall>
+
+<CLIInstall>
+  
+```bash
+npx shadcn@latest add https://display-ui.vercel.app/r/Toaster
+```
+
+</CLIInstall>
+
+<ManualInstall>
+
+<Steps>
+
+<Step>
+
+Install the following dependencies
+
+</Step>
+
+```bash
+npm install framer-motion lucide-react
+```
+
+<Step>
+
+Copy and paste the following code into your project
+
+</Step>
+
+<ComponentSource title="components/ui/Table.tsx" name="Table" />
+
+<Step>
+
+Update the import paths to match your project setup
+
+</Step>
+
+</Steps>
+
+</ManualInstall>
+
+</ComponentInstall>
+
+## Usage
+
+```tsx
+import { Button } from "@/registry/default/displayui/Button"
+import { Toaster } from "@/registry/default/displayui/Toaster"
+```
+
+```tsx
+<Toaster.Main>
+  <Toaster.Trigger
+    message="Profile updated successfully!"
+    toastType="info"
+    position="top-right"
+  >
+    <Button variant="solid" size="sm" className="bg-blue-500 hover:bg-blue-600">
+      Primary
+    </Button>
+  </Toaster.Trigger>
+</Toaster.Main>
+```
+
+## API
+
+### Separator Props
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | ReactNode[]",
+      description: "The contents of the component . Usually the name of button",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "ReactNode | ReactNode[]",
+      description: "The extra classes for user modification .",
+      default: "-",
+    },
+    {
+      attribute: "bg",
+      type: "solid | outline | ghost | link",
+      description: "Controls the color of separator.",
+      default: "white",
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The button size on viewport.",
+      default: "md",
+    },
+    {
+      attribute: "radius",
+      type: "sm | md | lg | xl | full",
+      description: "The button radius on viewport.",
+      default: "md",
+    },
+  ]}
+/>
+
+## Examples
+
+### Default
+
+<ComponentPreview name="ToasterInfoDemo" />
+
+### Warning
+
+<ComponentPreview name="ToasterWarningDemo" />
+
+### Success
+
+<ComponentPreview name="ToasterSuccessDemo" />
+
+### Danger
+
+<ComponentPreview name="ToasterErrorDemo" />
+
+## Credits
+
+This component is inspired by [Rehman Kalawant Design Shared On Github](https://github.com/rehman2711/display-ui).

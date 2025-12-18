@@ -1,0 +1,119 @@
+---
+title: Calendar
+description: Displays days, months, and years for date selection or scheduling. Useful for booking, event planning, or input forms.
+---
+
+<ComponentPreview name="CalendarDemo" description=" A Calendar Component ." />
+
+## Installation
+
+<ComponentInstall>
+
+<CLIInstall>
+  
+```bash
+npx shadcn@latest add https://display-ui.vercel.app/r/Calendar
+```
+
+</CLIInstall>
+
+<ManualInstall>
+
+<Steps>
+
+<Step>
+
+Install the following dependencies
+
+</Step>
+
+```bash
+npm install class-variance-authority
+```
+
+<Step>
+
+Copy and paste the following code into your project
+
+</Step>
+
+<ComponentSource title="components/ui/Calendar.tsx" name="Calendar" />
+
+<Step>
+
+Update the import paths to match your project setup
+
+</Step>
+
+</Steps>
+
+</ManualInstall>
+
+</ComponentInstall>
+
+## Usage
+
+```tsx
+import { Calendar } from "@/components/display-ui/Calendar"
+```
+
+```tsx
+<Calendar />
+```
+
+## API
+
+### Calendar Props
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | ReactNode[]",
+      description: "The contents of the component . Usually the name of button",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "ReactNode | ReactNode[]",
+      description: "The extra classes for user modification .",
+      default: "-",
+    },
+    {
+      attribute: "variant",
+      type: "solid | outline | ghost | link",
+      description: "The button appearance style.",
+      default: "solid",
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The button size on viewport.",
+      default: "md",
+    },
+    {
+      attribute: "radius",
+      type: "sm | md | lg | xl | full",
+      description: "The button radius on viewport.",
+      default: "md",
+    },
+  ]}
+/>
+
+## Examples
+
+### Default
+By default there is no border color to calendar input field
+<ComponentPreview title="" name="CalendarDefaultDemo" />
+
+### Primary Border
+
+<ComponentPreview name="CalendarPrimaryDemo" />
+
+### Success Border
+
+<ComponentPreview name="CalendarSuccessDemo" />
+
+## Credits
+
+This component is inspired by [Rehman Kalawant Design Shared On Github](https://github.com/rehman2711/display-ui).

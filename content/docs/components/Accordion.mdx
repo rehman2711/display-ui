@@ -1,0 +1,90 @@
+---
+title: Accordion
+description: A collapsible UI component that expands or hides content sections, perfect for FAQs or grouped information.
+---
+
+<ComponentPreview
+  name="AccordionDemo"
+  description="A collapsible UI component that expands or hides content sections, perfect for FAQs or grouped information."
+/>
+
+## Installation
+
+<ComponentInstall>
+
+<CLIInstall>
+  
+```bash
+npx shadcn@latest add https://display-ui.vercel.app/r/Accordion
+```
+
+</CLIInstall>
+
+<ManualInstall>
+
+<Steps>
+
+<Step>
+
+Install the following dependencies
+
+</Step>
+
+```bash
+npm install class-variance-authority lucide-react
+```
+
+<Step>
+
+Copy and paste the following code into your project
+
+</Step>
+
+<ComponentSource title="components/display-ui/Accordion.tsx" name="Accordion" />
+
+<Step>
+
+Update the import paths to match your project setup
+
+</Step>
+
+</Steps>
+
+</ManualInstall>
+
+</ComponentInstall>
+
+## Usage
+
+```tsx
+import { Accordion } from "@/components/display-ui/Accordion"
+```
+
+```tsx
+<Accordion.Main>
+  <Accordion.Trigger className="">What is Accordion ?</Accordion.Trigger>
+
+  <Accordion.Content className="">
+    <p>
+      Accordion is a collapsible UI component that expands or hides content
+      sections, perfect for FAQs or grouped information.
+    </p>
+  </Accordion.Content>
+</Accordion.Main>
+```
+
+## API
+
+### Accordion Props
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | ReactNode[]",
+      description:
+        "The contents of the collection. Usually the array of AccordionItem",
+      default: "-",
+    }
+  ]}
+/>

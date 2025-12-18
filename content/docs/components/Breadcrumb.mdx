@@ -1,0 +1,126 @@
+---
+title: Breadcrumb
+description: Provides a navigational trail showing the user’s current location within the site hierarchy, improving orientation and usability.
+---
+
+<ComponentPreview
+  name="BreadcrumbDemo"
+  description=" A Breadcrumb Component ."
+/>
+
+## Installation
+
+<ComponentInstall>
+
+<CLIInstall>
+  
+```bash
+npx shadcn@latest add https://display-ui.vercel.app/r/Breadcrumb
+```
+
+</CLIInstall>
+
+<ManualInstall>
+
+<Steps>
+
+<Step>
+
+Install the following dependencies
+
+</Step>
+
+```bash
+npm install lucide-react
+```
+
+<Step>
+
+Copy and paste the following code into your project
+
+</Step>
+
+<ComponentSource title="components/ui/Breadcrumb.tsx" name="Breadcrumb" />
+
+<Step>
+
+Update the import paths to match your project setup
+
+</Step>
+
+</Steps>
+
+</ManualInstall>
+
+</ComponentInstall>
+
+## Usage
+
+```tsx
+import { Breadcrumb } from "@/components/display-ui/Breadcrumb"
+```
+
+```tsx
+<Breadcrumb.Main separator={<ChevronRight width={14} />} textSize="xs">
+  <Breadcrumb.Path icon={<House width={12} />}>Home</Breadcrumb.Path>
+  <Breadcrumb.Path icon={<ShoppingCart width={12} />}>Cart</Breadcrumb.Path>
+  <Breadcrumb.Path icon={<Receipt width={12} />}>Billing</Breadcrumb.Path>
+  <Breadcrumb.Path icon={<Truck width={12} />}>Shipping</Breadcrumb.Path>
+  <Breadcrumb.Path icon={<BadgeDollarSign width={12} />}>
+    Payment
+  </Breadcrumb.Path>
+</Breadcrumb.Main>
+```
+
+## API
+
+### Breadcrumb Props
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | ReactNode[]",
+      description: "The contents of the component . Usually the name of button",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "ReactNode | ReactNode[]",
+      description: "The extra classes for user modification .",
+      default: "-",
+    },
+    {
+      attribute: "variant",
+      type: "solid | outline | ghost | link",
+      description: "The button appearance style.",
+      default: "solid",
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The button size on viewport.",
+      default: "md",
+    },
+    {
+      attribute: "radius",
+      type: "sm | md | lg | xl | full",
+      description: "The button radius on viewport.",
+      default: "md",
+    },
+  ]}
+/>
+
+## Examples
+
+### Default [ Without Icon ]
+
+<ComponentPreview  name="BreadcrumbDefaultDemo" />
+
+### With Icon
+
+<ComponentPreview name="BreadcrumbWithIconDemo" />
+
+## Credits
+
+This component is inspired by [Rehman Kalawant Design Shared On Github](https://github.com/rehman2711/display-ui).

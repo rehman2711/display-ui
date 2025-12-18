@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "Button",
+  "type": "registry:component",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\r\nimport { twMerge } from \"tailwind-merge\"\r\n\r\nexport function cn(...inputs: ClassValue[]) {\r\n  return twMerge(clsx(inputs))\r\n}\r\n",
+      "type": "registry:lib"
+    },
+    {
+      "path": "registry/default/displayui/Button.tsx",
+      "content": "\"use client\";\r\n\r\nimport { ComponentProps, forwardRef } from \"react\";\r\nimport { cva, VariantProps } from \"class-variance-authority\";\r\nimport { cn } from \"@/registry/lib/utils\";\r\nconst buttonVariants = cva([\"bg-blue-500 p-2 rounded-md text-white\"], {\r\n  variants: {\r\n    variant: {\r\n      solid: \"bg-blue-500 text-white hover:bg-blue-600\",\r\n      outline:\r\n        \"bg-transparent border border-blue-500 text-blue-500 hover:text-blue-700 hover:border-blue-700\",\r\n      ghost: \"bg-transparent text-blue-500 hover:bg-blue-500 hover:text-white\",\r\n      link: \"bg-transparent text-blue-500 hover:text-blue-700 hover:underline\",\r\n    },\r\n    size: {\r\n      sm: \"px-4 py-2 text-sm\",\r\n      md: \"px-4 py-2 text-base\",\r\n      lg: \"px-6 py-3 text-lg\",\r\n    },\r\n    radius: {\r\n      sm: \"rounded-sm\",\r\n      md: \"rounded-md\",\r\n      lg: \"rounded-lg\",\r\n      xl: \"rounded-xl\",\r\n      full: \"rounded-full\",\r\n    },\r\n  },\r\n\r\n  defaultVariants: {\r\n    variant: \"solid\",\r\n    size: \"md\",\r\n    radius: \"md\",\r\n  },\r\n});\r\n\r\ntype ButtonProps = ComponentProps<\"button\"> &\r\n  VariantProps<typeof buttonVariants>;\r\n\r\nexport const Button = forwardRef<HTMLButtonElement, ButtonProps>(\r\n  ({ variant, size, radius, className, ...props }, ref) => {\r\n    return (\r\n      <button\r\n        ref={ref}\r\n        className={cn(buttonVariants({ variant, size, radius, className }))}\r\n        {...props}\r\n      ></button>\r\n    );\r\n  }\r\n);\r\n\r\nButton.displayName=\"Button\"\r\n",
+      "type": "registry:lib",
+      "target": "components/display-ui/Button.tsx"
+    }
+  ]
+}

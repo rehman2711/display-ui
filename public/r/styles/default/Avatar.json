@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "Avatar",
+  "type": "registry:component",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\r\nimport { twMerge } from \"tailwind-merge\"\r\n\r\nexport function cn(...inputs: ClassValue[]) {\r\n  return twMerge(clsx(inputs))\r\n}\r\n",
+      "type": "registry:lib"
+    },
+    {
+      "path": "registry/default/displayui/Avatar.tsx",
+      "content": "\"use client\";\r\n\r\nimport { ComponentProps, forwardRef, ReactNode } from \"react\";\r\nimport { cn } from \"@/registry/lib/utils\";\r\n// Outer Area For Avatar\r\n\r\ntype AvatarProps = ComponentProps<\"span\"> & { children: ReactNode };\r\n\r\nconst AvatarRoot = forwardRef<HTMLSpanElement, AvatarProps>(\r\n  ({ className, children, ...props }, ref) => {\r\n    return (\r\n      <span\r\n        className={cn(\"rounded-full w-15 h-15\", className)}\r\n        ref={ref}\r\n        {...props}\r\n      >\r\n        {children}\r\n      </span>\r\n    );\r\n  }\r\n);\r\n\r\nAvatarRoot.displayName = \"AvatarRoot\";\r\n\r\n// Image Section\r\n\r\ntype AvatarImageProps = ComponentProps<\"img\">;\r\n\r\nconst AvatarImage = forwardRef<HTMLImageElement, AvatarImageProps>(\r\n  ({ className, ...props }, ref) => {\r\n    return (\r\n      <img\r\n        className={cn(\"w-full h-full object-cover rounded-full\", className)}\r\n        ref={ref}\r\n        {...props}\r\n      />\r\n    );\r\n  }\r\n);\r\n\r\nAvatarImage.displayName = \"AvatarImage\";\r\n\r\nexport const Avatar = {\r\n  Root: AvatarRoot,\r\n  Image: AvatarImage,\r\n};\r\n",
+      "type": "registry:lib",
+      "target": "components/display-ui/Avatar.tsx"
+    }
+  ]
+}

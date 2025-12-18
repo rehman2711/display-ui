@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "Input",
+  "type": "registry:component",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\r\nimport { twMerge } from \"tailwind-merge\"\r\n\r\nexport function cn(...inputs: ClassValue[]) {\r\n  return twMerge(clsx(inputs))\r\n}\r\n",
+      "type": "registry:lib"
+    },
+    {
+      "path": "registry/default/displayui/Input.tsx",
+      "content": "\"use client\";\r\n\r\nimport { cn } from \"@/registry/lib/utils\";\r\nimport { cva, VariantProps } from \"class-variance-authority\";\r\nimport { ComponentProps, forwardRef } from \"react\";\r\n\r\nconst inputStyles = cva(\r\n  [\r\n    \"w-full\",\r\n    \"rounded-md\",\r\n    \"border\",\r\n    \"border-gray-300\",\r\n    \"bg-white\",\r\n    \"text-black\",\r\n    \"px-3\",\r\n    \"py-2\",\r\n    \"text-sm\",\r\n    \"focus:outline-none\",\r\n    \"disabled:cursor-not-allowed\",\r\n    \"disabled:opacity-50\",\r\n    \"[appearance:textfield]\",\r\n  ],\r\n  {\r\n    variants: {\r\n      border: {\r\n        primary: \"focus:ring-2 focus:ring-blue-500 \",\r\n        success: \"focus:ring-2 focus:ring-green-500 \",\r\n        warning: \"focus:ring-2 focus:ring-yellow-400 \",\r\n        danger: \"focus:ring-2 focus:ring-red-500\",\r\n        none: \"focus:ring-0\",\r\n      },\r\n    },\r\n    defaultVariants: {\r\n      border: \"primary\",\r\n    },\r\n  }\r\n);\r\n\r\ntype InputProps = ComponentProps<\"input\"> & VariantProps<typeof inputStyles>;\r\n\r\nexport const Input = forwardRef<HTMLInputElement, InputProps>(\r\n  ({ border, className, ...props }, ref) => {\r\n    return (\r\n      <input\r\n        ref={ref}\r\n        className={cn(inputStyles({ border }), className)}\r\n        {...props}\r\n      />\r\n    );\r\n  }\r\n);\r\n\r\nInput.displayName=\"Input\"\r\n",
+      "type": "registry:lib",
+      "target": "components/display-ui/Input.tsx"
+    }
+  ]
+}

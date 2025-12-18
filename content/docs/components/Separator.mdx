@@ -1,0 +1,115 @@
+---
+title: Separator
+description: A simple line or divider used to visually separate groups of content or UI elements.
+---
+
+<ComponentPreview name="SeparatorDemo" description=" A Separator Component ." />
+
+## Installation
+
+<ComponentInstall>
+
+<CLIInstall>
+  
+```bash
+npx shadcn@latest add https://display-ui.vercel.app/r/Separator
+```
+
+</CLIInstall>
+
+<ManualInstall>
+
+<Steps>
+
+<Step>
+
+Install the following dependencies
+
+</Step>
+
+```bash
+npm install class-variance-authority
+```
+
+<Step>
+
+Copy and paste the following code into your project
+
+</Step>
+
+<ComponentSource title="components/ui/Separator.tsx" name="Separator" />
+
+<Step>
+
+Update the import paths to match your project setup
+
+</Step>
+
+</Steps>
+
+</ManualInstall>
+
+</ComponentInstall>
+
+## Usage
+
+```tsx
+import { Separator } from "@/components/display-ui/Separator"
+```
+
+```tsx
+<Separator/>
+```
+
+## API
+
+### Separator Props
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | ReactNode[]",
+      description: "The contents of the component . Usually the name of button",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "ReactNode | ReactNode[]",
+      description: "The extra classes for user modification .",
+      default: "-",
+    },
+    {
+      attribute: "bg",
+      type: "solid | outline | ghost | link",
+      description: "Controls the color of separator.",
+      default: "white",
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The button size on viewport.",
+      default: "md",
+    },
+    {
+      attribute: "radius",
+      type: "sm | md | lg | xl | full",
+      description: "The button radius on viewport.",
+      default: "md",
+    },
+  ]}
+/>
+
+## Examples
+
+### Horizontal
+
+<ComponentPreview title="" name="SeparatorHorizontalDemo" />
+
+### Vertical
+
+<ComponentPreview name="SeparatorVerticalDemo" />
+
+## Credits
+
+This component is inspired by [Rehman Kalawant Design Shared On Github](https://github.com/rehman2711/display-ui).

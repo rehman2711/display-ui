@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "NavigationMenuMac",
+  "type": "registry:component",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\r\nimport { twMerge } from \"tailwind-merge\"\r\n\r\nexport function cn(...inputs: ClassValue[]) {\r\n  return twMerge(clsx(inputs))\r\n}\r\n",
+      "type": "registry:lib"
+    },
+    {
+      "path": "registry/default/displayui/NavigationMenuMac.tsx",
+      "content": "\"use client\";\r\n\r\nimport { useRef } from \"react\";\r\nimport {\r\n  motion,\r\n  useMotionValue,\r\n  useSpring,\r\n  useTransform,\r\n  MotionValue,\r\n} from \"framer-motion\";\r\n\r\nimport { Tooltip } from \"./Tooltip\";\r\nimport { cn } from \"@/registry/lib/utils\";\r\n\r\n\r\n/* ---------- Container ---------- */\r\nexport function NavigateMenu({ children }: { children: React.ReactNode }) {\r\n  const mouseX = useMotionValue(Infinity);\r\n\r\n  return (\r\n    <motion.div\r\n      onMouseMove={(e) => mouseX.set(e.pageX)}\r\n      onMouseLeave={() => mouseX.set(Infinity)}\r\n      className=\"\r\n        fixed bottom-6 left-1/2 -translate-x-1/2 z-30\r\n        flex items-end gap-4 px-6 py-3\r\n        rounded-2xl bg-black/60 backdrop-blur-md shadow-xl h-[9%]\r\n      \"\r\n    >\r\n      {/* Inject mouseX into each child */}\r\n      {Array.isArray(children)\r\n        ? children.map((child, i) =>\r\n            child && typeof child === \"object\" && \"type\" in child\r\n              ? { ...child, props: { ...child.props, mouseX, key: i } }\r\n              : child\r\n          )\r\n        : children}\r\n    </motion.div>\r\n  );\r\n}\r\n\r\n/* ---------- Item ---------- */\r\ntype NavigateItemProps = {\r\n  src: string;\r\n  alt?: string;\r\n  size?: number;\r\n  href?: string;\r\n  mouseX?: MotionValue;\r\n  onClick?: () => void;\r\n  tooltipContent?: string;\r\n  className?: string;\r\n};\r\n\r\nexport function NavigateItem({\r\n  src,\r\n  alt = \"\",\r\n  size = 40,\r\n  href,\r\n  mouseX,\r\n  onClick,\r\n  tooltipContent,\r\n  className\r\n}: NavigateItemProps) {\r\n  const ref = useRef<HTMLDivElement>(null);\r\n\r\n  // distance of cursor to this icon’s center\r\n  const distance = useTransform(mouseX!, (val) => {\r\n    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };\r\n    return val - bounds.x - bounds.width / 2;\r\n  });\r\n\r\n  // map distance → width\r\n  const widthSync = useTransform(\r\n    distance,\r\n    [-150, 0, 150],\r\n    [size, size * 2.2, size]\r\n  );\r\n  const width = useSpring(widthSync, {\r\n    mass: 0.1,\r\n    stiffness: 110,\r\n    damping: 12,\r\n  });\r\n\r\n  // handle click\r\n  const handleClick = () => {\r\n    if (onClick) onClick();\r\n    else if (href) window.open(href, \"_blank\");\r\n  };\r\n\r\n  return (\r\n    <motion.div\r\n      ref={ref}\r\n      style={{ width }}\r\n      className={cn(\"flex aspect-square items-center justify-center rounded-xl bg-white/90 cursor-pointer shadow-md \" , className)}\r\n      onClick={handleClick}\r\n    >\r\n      <Tooltip.Root>\r\n        <Tooltip.Trigger>\r\n          <img\r\n            src={src}\r\n            alt={alt}\r\n            width={size}\r\n            height={size}\r\n            className={cn(\"object-contain select-none pointer-events-none\" , className)}\r\n            draggable={false}\r\n          />\r\n          {tooltipContent && (\r\n            <Tooltip.Content\r\n              content={tooltipContent}\r\n              position=\"simple\"\r\n              className=\"mb-8\"\r\n            />\r\n          )}\r\n        </Tooltip.Trigger>\r\n      </Tooltip.Root>\r\n    </motion.div>\r\n  );\r\n}\r\n",
+      "type": "registry:lib",
+      "target": "components/display-ui/NavigationMenuMac.tsx"
+    }
+  ]
+}

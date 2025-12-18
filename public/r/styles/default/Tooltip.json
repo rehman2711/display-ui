@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "Tooltip",
+  "type": "registry:component",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\r\nimport { twMerge } from \"tailwind-merge\"\r\n\r\nexport function cn(...inputs: ClassValue[]) {\r\n  return twMerge(clsx(inputs))\r\n}\r\n",
+      "type": "registry:lib"
+    },
+    {
+      "path": "registry/default/displayui/Tooltip.tsx",
+      "content": "\"use client\";\r\n\r\nimport { ComponentProps, forwardRef, ReactNode } from \"react\";\r\nimport { cn } from \"@/registry/lib/utils\";\r\n\r\n// ---------- Tooltip Root ----------\r\ntype TooltipRootProps = ComponentProps<\"div\"> & { children: ReactNode };\r\n\r\nconst TooltipRoot = forwardRef<HTMLDivElement, TooltipRootProps>(\r\n  ({ className, children, ...props }, ref) => {\r\n    return (\r\n      <div\r\n        className={cn(\"relative inline-block group\", className)} // <- group needed\r\n        ref={ref}\r\n        {...props}\r\n      >\r\n        {children}\r\n      </div>\r\n    );\r\n  }\r\n);\r\nTooltipRoot.displayName = \"TooltipRoot\";\r\n\r\n// ---------- Tooltip Trigger ----------\r\ntype TooltipTriggerProps = ComponentProps<\"span\"> & { children: ReactNode };\r\n\r\nconst TooltipTrigger = forwardRef<HTMLSpanElement, TooltipTriggerProps>(\r\n  ({ className, children, ...props }, ref) => {\r\n    return (\r\n      <span className={cn(\"cursor-pointer\", className)} ref={ref} {...props}>\r\n        {children}\r\n      </span>\r\n    );\r\n  }\r\n);\r\nTooltipTrigger.displayName = \"TooltipTrigger\";\r\n\r\n// ---------- Tooltip Content ----------\r\ntype TooltipContentProps = ComponentProps<\"div\"> & {\r\n  content: ReactNode;\r\n  position?: \"top\" | \"bottom\" | \"left\" | \"right\" | \"simple\";\r\n};\r\n\r\nconst TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(\r\n  ({ className, content, position = \"top\", ...props }, ref) => {\r\n    const positionClasses = {\r\n      top: \"bottom-full left-1/2 -translate-x-1/2 mb-2\",\r\n      bottom: \"top-full left-1/2 -translate-x-1/2 mt-2\",\r\n      left: \"right-full top-1/2 -translate-y-1/2 mr-2\",\r\n      right: \"left-full top-1/2 -translate-y-1/2 ml-2\",\r\n      simple: \"\",\r\n    };\r\n\r\n    const arrowClasses = {\r\n      top: \"after:border-t-black after:border-t-[6px] after:border-x-transparent after:border-x-[6px] after:absolute after:bottom-[-5px] after:left-1/2 after:-translate-x-1/2\",\r\n      bottom:\r\n        \"after:border-b-black after:border-b-[6px] after:border-x-transparent after:border-x-[6px] after:absolute after:top-[-5px] after:left-1/2 after:-translate-x-1/2\",\r\n      left: \"after:border-l-black after:border-l-[6px] after:border-y-transparent after:border-y-[6px] after:absolute after:right-[-5px] after:top-1/2 after:-translate-y-1/2\",\r\n      right:\r\n        \"after:border-r-black after:border-r-[6px] after:border-y-transparent after:border-y-[6px] after:absolute after:left-[-5px] after:top-1/2 after:-translate-y-1/2\",\r\n      simple: \"bottom-full left-1/2 -translate-x-1/2 mb-2\",\r\n    };\r\n\r\n    return (\r\n      <div\r\n        className={cn(\r\n          \"absolute z-50 bg-black text-white text-sm px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 transform scale-90 group-hover:scale-100 whitespace-nowrap\",\r\n          positionClasses[position],\r\n          arrowClasses[position],\r\n          className\r\n        )}\r\n        ref={ref}\r\n        {...props}\r\n      >\r\n        {content}\r\n      </div>\r\n    );\r\n  }\r\n);\r\n\r\nTooltipContent.displayName=\"TooltipContent\"\r\n\r\n// ---------- Export ----------\r\nexport const Tooltip = {\r\n  Root: TooltipRoot,\r\n  Trigger: TooltipTrigger,\r\n  Content: TooltipContent,\r\n};\r\n",
+      "type": "registry:lib",
+      "target": "components/display-ui/Tooltip.tsx"
+    }
+  ]
+}

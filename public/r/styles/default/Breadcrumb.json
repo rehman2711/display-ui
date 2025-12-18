@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "Breadcrumb",
+  "type": "registry:component",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\r\nimport { twMerge } from \"tailwind-merge\"\r\n\r\nexport function cn(...inputs: ClassValue[]) {\r\n  return twMerge(clsx(inputs))\r\n}\r\n",
+      "type": "registry:lib"
+    },
+    {
+      "path": "registry/default/displayui/Breadcrumb.tsx",
+      "content": "\"use client\";\r\n\r\nimport React, { ComponentProps, forwardRef, ReactNode } from \"react\";\r\nimport { cva, VariantProps } from \"class-variance-authority\";\r\nimport { cn } from \"@/registry/lib/utils\";\r\n// Main wrapper for breadcrumb\r\nconst breadcrumbVariant = cva([\"inline-flex items-center\"], {\r\n  variants: {\r\n    textSize: {\r\n      xs: \"text-xs\",\r\n      sm: \"text-sm\",\r\n      md: \"text-base\",\r\n      lg: \"text-lg\",\r\n    },\r\n  },\r\n  defaultVariants: {\r\n    textSize: \"md\",\r\n  },\r\n});\r\n\r\ntype BreadcrumbProps = ComponentProps<\"span\"> &\r\n  VariantProps<typeof breadcrumbVariant> & {\r\n    children: ReactNode;\r\n    separator?: ReactNode;\r\n  };\r\n\r\nconst BreadcrumbMain = forwardRef<HTMLSpanElement, BreadcrumbProps>(\r\n  ({ textSize, children, className, separator, ...props }, ref) => {\r\n    const items = React.Children.toArray(children);\r\n    return (\r\n      <span\r\n        className={cn(breadcrumbVariant({ textSize }), className)}\r\n        ref={ref}\r\n        {...props}\r\n      >\r\n        {items.map((child, index) => (\r\n          <span key={index} className=\"inline-flex items-center\">\r\n            {child}\r\n            {index < items.length - 1 && (\r\n              <span className=\"mx-1\">{separator}</span>\r\n            )}\r\n          </span>\r\n        ))}\r\n      </span>\r\n    );\r\n  }\r\n);\r\n\r\nBreadcrumbMain.displayName = \"Breadcrumb.Main\";\r\n\r\ntype PathProps = ComponentProps<\"a\"> & {\r\n  icon?: ReactNode; // optional icon before the text\r\n};\r\n\r\nconst Path = forwardRef<HTMLAnchorElement, PathProps>(\r\n  ({ className, icon, children, ...props }, ref) => {\r\n    return (\r\n      <a\r\n        ref={ref}\r\n        className={cn(\r\n          \"inline-flex items-center gap-1 !text-gray-700\",\r\n          className\r\n        )}\r\n        {...props}\r\n      >\r\n        {icon && <span className=\"inline-flex\">{icon}</span>}\r\n        {children}\r\n      </a>\r\n    );\r\n  }\r\n);\r\n\r\nPath.displayName = \"Path\"\r\n\r\n// Export compound component\r\nexport const Breadcrumb = {\r\n  Main: BreadcrumbMain,\r\n  Path: Path,\r\n};\r\n",
+      "type": "registry:lib",
+      "target": "components/display-ui/Breadcrumb.tsx"
+    }
+  ]
+}

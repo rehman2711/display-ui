@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "InfiniteCarousel",
+  "type": "registry:component",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\r\nimport { twMerge } from \"tailwind-merge\"\r\n\r\nexport function cn(...inputs: ClassValue[]) {\r\n  return twMerge(clsx(inputs))\r\n}\r\n",
+      "type": "registry:lib"
+    },
+    {
+      "path": "registry/default/displayui/InfiniteCarousel.tsx",
+      "content": "\"use client\";\r\n\r\nimport { cn } from \"@/registry/lib/utils\";\r\nimport {\r\n  ComponentProps,\r\n  forwardRef,\r\n  ReactNode,\r\n  useRef,\r\n  useEffect,\r\n  useState,\r\n} from \"react\";\r\n\r\n// 🔹 Infinite Carousel Item\r\ntype InfiniteCarouselItemProps = ComponentProps<\"div\"> & {\r\n  children: ReactNode;\r\n  href?: string;\r\n};\r\nexport const InfiniteCarouselItem = forwardRef<\r\n  HTMLDivElement,\r\n  InfiniteCarouselItemProps\r\n>(({ className, children, href, ...props }, ref) => (\r\n  <div\r\n    ref={ref}\r\n    className={cn(\r\n      \"w-64 flex-shrink-0 relative cursor-pointer group\",\r\n      className\r\n    )}\r\n    onClick={() => href && (window.location.href = href)}\r\n    {...props}\r\n  >\r\n    {children}\r\n    {/* 🔵 Blue overlay on hover */}\r\n    <div className=\"absolute inset-0 bg-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity\" />\r\n  </div>\r\n));\r\nInfiniteCarouselItem.displayName = \"InfiniteCarouselItem\";\r\n\r\n// 🔹 Infinite Carousel\r\ntype InfiniteCarouselProps = {\r\n  children: ReactNode[];\r\n  speed?: number; // pixels per second\r\n  className?: string;\r\n  pauseOnHover?: boolean; // new prop\r\n};\r\n\r\nexport const InfiniteCarousel = forwardRef<\r\n  HTMLDivElement,\r\n  InfiniteCarouselProps\r\n>(({ children, className, speed = 50, pauseOnHover = true }, ref) => {\r\n  const containerRef = useRef<HTMLDivElement>(null);\r\n  const [offset, setOffset] = useState(0);\r\n  const [paused, setPaused] = useState(false);\r\n\r\n  // duplicate children for seamless loop\r\n  const items = [...children, ...children];\r\n\r\n  useEffect(() => {\r\n    let last = performance.now();\r\n    let raf: number;\r\n\r\n    const tick = (now: number) => {\r\n      const delta = (now - last) / 1000;\r\n      last = now;\r\n\r\n      if (!paused) {\r\n        setOffset((prev) => {\r\n          const width = containerRef.current?.scrollWidth || 0;\r\n          const next = prev + speed * delta;\r\n          return next >= width / 2 ? 0 : next; // reset at half\r\n        });\r\n      }\r\n\r\n      raf = requestAnimationFrame(tick);\r\n    };\r\n\r\n    raf = requestAnimationFrame(tick);\r\n    return () => cancelAnimationFrame(raf);\r\n  }, [speed, paused]);\r\n\r\n  return (\r\n    <div\r\n      className={cn(\"relative w-full overflow-hidden\", className)}\r\n      onMouseEnter={() => pauseOnHover && setPaused(true)}\r\n      onMouseLeave={() => pauseOnHover && setPaused(false)}\r\n      ref={ref}\r\n    >\r\n      <div\r\n        ref={containerRef}\r\n        className=\"flex whitespace-nowrap\"\r\n        style={{\r\n          transform: `translateX(-${offset}px)`,\r\n          willChange: \"transform\",\r\n        }}\r\n      >\r\n        {items.map((child, i) => (\r\n          <div key={i} className=\"flex-shrink-0\">\r\n            {child}\r\n          </div>\r\n        ))}\r\n      </div>\r\n    </div>\r\n  );\r\n});\r\nInfiniteCarousel.displayName = \"InfiniteCarousel\";\r\n",
+      "type": "registry:lib",
+      "target": "components/display-ui/InfiniteCarousel.tsx"
+    }
+  ]
+}

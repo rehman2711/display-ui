@@ -1,0 +1,87 @@
+---
+title: Installation
+description: Step-by-step guide to install and set up Display UI in your React project
+icon: PackagePlus
+---
+
+We provides two installation methods for you to choose from.
+
+## Quick Installation with CLI
+
+Use our CLI tool to quickly install / initialize Shadcn :
+
+```bash
+npx shadcn@latest init
+```
+
+
+Then , quickly install the required components using the CLI :
+
+```bash
+npx shadcn@latest add <component-name>
+```
+
+For example, install the button component:
+
+```bash
+npx shadcn@latest add http://display-ui.vercel.app/r/Button
+```
+
+CLI will automatically complete the installation and configuration process, without any additional steps.
+
+## Manual Installation
+
+If you prefer to install manually, please follow the steps below:
+
+<Steps>
+
+<Step>
+
+Follow the [Shadcn UI installation guide](https://ui.shadcn.com/docs/installation) to install the core packages.
+
+</Step>
+
+<Step>
+
+Install the following packages:
+
+```bash
+npm install motion lucide-react
+```
+
+</Step>
+
+<Step>
+
+Copy the following code into `lib/utils.ts`
+
+```tsx title="app/lib/utils.tsx"
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+```
+
+</Step>
+
+<Step>
+
+Follow the individual component's manual installation guide for each component you want to install
+
+</Step>
+
+</Steps>
+
+## Let's get started
+
+Now that you've installed the core packages and the required components, you're ready to start building with Display UI !
+
+```tsx title="app/page.tsx"
+import { Button } from "@/components/display-ui/Button"
+
+export default function Home() {
+  return <Button>Click me</Button>
+}
+```

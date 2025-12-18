@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "Separator",
+  "type": "registry:component",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\r\nimport { twMerge } from \"tailwind-merge\"\r\n\r\nexport function cn(...inputs: ClassValue[]) {\r\n  return twMerge(clsx(inputs))\r\n}\r\n",
+      "type": "registry:lib"
+    },
+    {
+      "path": "registry/default/displayui/Separator.tsx",
+      "content": "\"use client\";\r\n\r\nimport * as React from \"react\";\r\nimport { cva, VariantProps } from \"class-variance-authority\";\r\nimport { cn } from \"@/registry/lib/utils\";\r\n\r\nconst separatorVariants = cva(\"shrink-0 bg-gray-200\", {\r\n  variants: {\r\n    variant: {\r\n      default: \"bg-gray-200\",\r\n      danger: \"bg-red-500\",\r\n      success: \"bg-green-400\",\r\n    },\r\n    size: {\r\n      sm: \"my-2\",\r\n      md: \"my-4\",\r\n      lg: \"my-6\",\r\n    },\r\n    orientation: {\r\n      horizontal: \"h-px w-full\",\r\n      vertical: \"w-px h-full\",\r\n    },\r\n  },\r\n  defaultVariants: {\r\n    variant: \"default\",\r\n    size: \"md\",\r\n    orientation: \"horizontal\",\r\n  },\r\n});\r\n\r\ntype SeparatorProps = React.HTMLAttributes<HTMLDivElement> &\r\n  VariantProps<typeof separatorVariants> & {\r\n    decorative?: boolean;\r\n  };\r\n\r\nexport const Separator = React.forwardRef<HTMLDivElement, SeparatorProps>(\r\n  (\r\n    { className, variant, size, orientation, decorative = false, ...props },\r\n    ref\r\n  ) => {\r\n    const semanticProps = decorative\r\n      ? { role: \"none\" }\r\n      : orientation\r\n      ? { role: \"separator\", \"aria-orientation\": orientation }\r\n      : { role: \"separator\" };\r\n    // const semanticProps = decorative\r\n    //   ? { role: \"none\" }\r\n    //   : { role: \"separator\", \"aria-orientation\": orientation };\r\n\r\n    return (\r\n      <div\r\n        ref={ref}\r\n        className={cn(\r\n          separatorVariants({ variant, size, orientation }),\r\n          className\r\n        )}\r\n        {...semanticProps}\r\n        {...props}\r\n      />\r\n    );\r\n  }\r\n);\r\n\r\nSeparator.displayName = \"Separator\";\r\n",
+      "type": "registry:lib",
+      "target": "components/display-ui/Separator.tsx"
+    }
+  ]
+}
