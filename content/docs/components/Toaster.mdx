@@ -76,40 +76,72 @@ import { Toaster } from "@/registry/default/displayui/Toaster"
 
 ### Separator Props
 
+<Steps>
+
+<Step>
+  <p className="font-semibold">For Toaster Main</p>
+</Step>
+
 <APITable
   data={[
     {
       attribute: "children",
       type: "ReactNode | ReactNode[]",
-      description: "The contents of the component . Usually the name of button",
+      description:
+        "Wraps the application and provides toast context. Required for using Toaster.Trigger or useToast hook.",
       default: "-",
-    },
-    {
-      attribute: "className",
-      type: "ReactNode | ReactNode[]",
-      description: "The extra classes for user modification .",
-      default: "-",
-    },
-    {
-      attribute: "bg",
-      type: "solid | outline | ghost | link",
-      description: "Controls the color of separator.",
-      default: "white",
-    },
-    {
-      attribute: "size",
-      type: "sm | md | lg",
-      description: "The button size on viewport.",
-      default: "md",
-    },
-    {
-      attribute: "radius",
-      type: "sm | md | lg | xl | full",
-      description: "The button radius on viewport.",
-      default: "md",
     },
   ]}
 />
+
+<Step>
+  <p className="font-semibold">For Toaster Trigger</p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description: "Content rendered inside the trigger button.",
+      default: "-",
+    },
+    {
+      attribute: "message",
+      type: "string",
+      description: "Message text displayed inside the toast notification.",
+      default: "-",
+    },
+    {
+      attribute: "toastType",
+      type: '"success" | "error" | "info" | "warning"',
+      description: "Controls the visual style and icon of the toast.",
+      default: '"info"',
+    },
+    {
+      attribute: "position",
+      type: '"top-right" | "top-left" | "bottom-right" | "bottom-left"',
+      description: "Defines where the toast appears on the screen.",
+      default: '"top-right"',
+    },
+    {
+      attribute: "duration",
+      type: "number",
+      description:
+        "Time in milliseconds before the toast automatically disappears.",
+      default: "3000",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the trigger button styling.",
+      default: "-",
+    },
+  ]}
+/>
+
+</Steps>
 
 ## Examples
 

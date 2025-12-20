@@ -81,40 +81,174 @@ import { Drawer } from "@/components/display-ui/Button"
 
 ### Drawer Props
 
+<Steps>
+
+<Step>
+  <p className="font-semibold">For Drawer Main</p>
+</Step>
+
 <APITable
   data={[
     {
       attribute: "children",
       type: "ReactNode | ReactNode[]",
-      description: "The contents of the component . Usually the name of button",
+      description:
+        "Root container for the drawer. Must wrap Drawer.Trigger and Drawer.Content components.",
+      default: "-",
+    },
+    {
+      attribute: "defaultOpen",
+      type: "boolean",
+      description:
+        "Controls whether the drawer is open by default on initial render.",
+      default: "false",
+    },
+    {
+      attribute: "side",
+      type: '"left" | "right" | "top" | "bottom"',
+      description: "Defines the side from which the drawer appears.",
+      default: '"right"',
+    },
+  ]}
+/>
+
+<Step>
+  <p className="font-semibold">For Drawer Trigger</p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description:
+        "Content displayed inside the trigger button that opens the drawer.",
       default: "-",
     },
     {
       attribute: "className",
-      type: "ReactNode | ReactNode[]",
-      description: "The extra classes for user modification .",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the trigger button styling.",
       default: "-",
-    },
-    {
-      attribute: "variant",
-      type: "solid | outline | ghost | link",
-      description: "The button appearance style.",
-      default: "solid",
-    },
-    {
-      attribute: "size",
-      type: "sm | md | lg",
-      description: "The button size on viewport.",
-      default: "md",
-    },
-    {
-      attribute: "radius",
-      type: "sm | md | lg | xl | full",
-      description: "The button radius on viewport.",
-      default: "md",
     },
   ]}
 />
+
+<Step>
+  <p className="font-semibold">For Drawer Content</p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | ReactNode[]",
+      description:
+        "Main container for drawer content. Typically includes Header, Body, and Footer.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the drawer content container.",
+      default: "-",
+    },
+  ]}
+/>
+
+<Step>
+  <p className="font-semibold">For Drawer Header</p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description:
+        "Header section of the drawer, typically used for titles or headings.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the drawer header styling.",
+      default: "-",
+    },
+  ]}
+/>
+
+<Step>
+  <p className="font-semibold">For Drawer Body</p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | ReactNode[]",
+      description: "Scrollable main content area of the drawer.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the drawer body styling.",
+      default: "-",
+    },
+  ]}
+/>
+
+<Step>
+  <p className="font-semibold">For Drawer Footer</p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | ReactNode[]",
+      description: "Footer section of the drawer, commonly used for actions.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the drawer footer styling.",
+      default: "-",
+    },
+  ]}
+/>
+
+<Step>
+  <p className="font-semibold">For Drawer Close</p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description:
+        "Label displayed inside the close button. Closes the drawer when clicked.",
+      default: '"Close"',
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the close button styling.",
+      default: "-",
+    },
+  ]}
+/>
+
+</Steps>
 
 ## Examples
 

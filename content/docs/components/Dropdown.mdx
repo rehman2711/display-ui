@@ -3,7 +3,10 @@ title: Dropdown
 description: A compact menu that appears when triggered, offering a list of selectable options or actions.
 ---
 
-<ComponentPreview name="DropdownMenuDemo" description=" A Dropdown Component ." />
+<ComponentPreview
+  name="DropdownMenuDemo"
+  description=" A Dropdown Component ."
+/>
 
 ## Installation
 
@@ -116,16 +119,120 @@ import { Dropdown } from "@/components/display-ui/Dropdown"
 
 ### Dropdown Props
 
+<Steps>
+
+<Step>
+  <p className="font-semibold">For DropdownMenu Main</p>
+</Step>
+
 <APITable
   data={[
     {
       attribute: "children",
       type: "ReactNode | ReactNode[]",
-      description: "The contents of the component . Usually the name of button",
+      description:
+        "Root container for the dropdown menu. Must wrap Trigger and Content components.",
       default: "-",
-    }
+    },
+    {
+      attribute: "defaultOpen",
+      type: "boolean",
+      description:
+        "Controls whether the dropdown is open by default on initial render.",
+      default: "false",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the dropdown container styling.",
+      default: "-",
+    },
   ]}
 />
+
+<Step>
+  <p className="font-semibold">For DropdownMenu Trigger</p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description:
+        "Content displayed inside the trigger button that toggles the dropdown.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the trigger button styling.",
+      default: "-",
+    },
+  ]}
+/>
+
+<Step>
+  <p className="font-semibold">For DropdownMenu Content</p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | ReactNode[]",
+      description:
+        "Container for dropdown menu items. Rendered only when the dropdown is open.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the dropdown content styling.",
+      default: "-",
+    },
+  ]}
+/>
+
+<Step>
+  <p className="font-semibold">For DropdownMenu Item</p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description: "Label or content displayed inside the dropdown item.",
+      default: "-",
+    },
+    {
+      attribute: "icon",
+      type: "ReactNode",
+      description: "Optional icon displayed before the item label.",
+      default: "-",
+    },
+    {
+      attribute: "onClick",
+      type: "(event: React.MouseEvent<HTMLButtonElement>) => void",
+      description:
+        "Callback fired when the item is clicked. The dropdown closes automatically after execution.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the dropdown item styling.",
+      default: "-",
+    },
+  ]}
+/>
+
+</Steps>
 
 ## Credits
 

@@ -76,46 +76,84 @@ import { Breadcrumb } from "@/components/display-ui/Breadcrumb"
 
 ### Breadcrumb Props
 
+<Steps>
+
+<Step>
+  <p className="font-semibold">For Breadcrumb Main</p>
+</Step>
+
 <APITable
   data={[
     {
       attribute: "children",
       type: "ReactNode | ReactNode[]",
-      description: "The contents of the component . Usually the name of button",
+      description:
+        "Breadcrumb items to be rendered in sequence. Typically composed of Breadcrumb.Path components.",
+      default: "-",
+    },
+    {
+      attribute: "textSize",
+      type: '"xs" | "sm" | "md" | "lg"',
+      description: "Controls the text size of the breadcrumb items.",
+      default: '"md"',
+    },
+    {
+      attribute: "separator",
+      type: "ReactNode",
+      description: "Custom separator rendered between breadcrumb items.",
       default: "-",
     },
     {
       attribute: "className",
-      type: "ReactNode | ReactNode[]",
-      description: "The extra classes for user modification .",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the breadcrumb container styling.",
       default: "-",
-    },
-    {
-      attribute: "variant",
-      type: "solid | outline | ghost | link",
-      description: "The button appearance style.",
-      default: "solid",
-    },
-    {
-      attribute: "size",
-      type: "sm | md | lg",
-      description: "The button size on viewport.",
-      default: "md",
-    },
-    {
-      attribute: "radius",
-      type: "sm | md | lg | xl | full",
-      description: "The button radius on viewport.",
-      default: "md",
     },
   ]}
 />
+
+<Step>
+  <p className="font-semibold">For Breadcrumb Path</p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description: "The label text of the breadcrumb path.",
+      default: "-",
+    },
+    {
+      attribute: "icon",
+      type: "ReactNode",
+      description: "Optional icon displayed before the breadcrumb text.",
+      default: "-",
+    },
+    {
+      attribute: "href",
+      type: "string",
+      description: "URL the breadcrumb path links to.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the breadcrumb path styling.",
+      default: "-",
+    },
+  ]}
+/>
+
+</Steps>
 
 ## Examples
 
 ### Default [ Without Icon ]
 
-<ComponentPreview  name="BreadcrumbDefaultDemo" />
+<ComponentPreview name="BreadcrumbDefaultDemo" />
 
 ### With Icon
 

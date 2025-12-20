@@ -60,16 +60,61 @@ import { Avatar } from "@/components/display-ui/Avatar"
 
 ### Avatar Props
 
+<Steps>
+
+<Step>
+  <p className="font-semibold">For Avatar Root</p>
+</Step>
+
 <APITable
   data={[
     {
+      attribute: "children",
+      type: "ReactNode",
+      description:
+        "Content placed inside the avatar container. Typically used to render the Avatar.Image component.",
+      default: "-",
+    },
+    {
       attribute: "className",
-      type: "ReactNode | ReactNode[]",
-      description: "The extra classes for user modification .",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the size, layout, or styling of the avatar container.",
       default: "-",
     },
   ]}
 />
+
+<Step>
+  <p className="font-semibold">For Avatar Image</p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "src",
+      type: "string",
+      description: "Source URL of the avatar image.",
+      default: "-",
+    },
+    {
+      attribute: "alt",
+      type: "string",
+      description:
+        "Alternative text describing the avatar image for accessibility.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the avatar image styling.",
+      default: "-",
+    },
+  ]}
+/>
+
+</Steps>
 
 ## Examples
 

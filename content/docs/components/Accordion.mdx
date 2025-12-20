@@ -77,14 +77,80 @@ import { Accordion } from "@/components/display-ui/Accordion"
 
 ### Accordion Props
 
+<Steps>
+
+<Step>
+  <p className="font-semibold">For Main Accordion Content</p>
+</Step>
+
 <APITable
   data={[
     {
       attribute: "children",
       type: "ReactNode | ReactNode[]",
       description:
-        "The contents of the collection. Usually the array of AccordionItem",
+        "The root container for the accordion. Must wrap Accordion.Trigger and Accordion.Content components.",
       default: "-",
-    }
+    },
+    {
+      attribute: "variant",
+      type: '"dark" | "light"',
+      description: "Controls the visual theme of the accordion container.",
+      default: '"dark"',
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the accordion container styling.",
+      default: "-",
+    },
   ]}
 />
+
+<Step>
+  <p className="font-semibold">For Accordion Trigger</p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description: "The content displayed inside the accordion trigger button.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the trigger button styling.",
+      default: "-",
+    },
+  ]}
+/>
+
+<Step>
+  <p className="font-semibold">For Accordion Content</p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description:
+        "The collapsible content displayed when the accordion is expanded.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the accordion content area.",
+      default: "-",
+    },
+  ]}
+/>
+
+</Steps>

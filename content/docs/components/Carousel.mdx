@@ -84,40 +84,73 @@ import { Carousel, CarouselItem } from "@/components/display-ui/Carousel"
 
 ### Carousel Props
 
+<Steps>
+
+<Step>
+  <p className="font-semibold">For Carousel Component</p>
+</Step>
+
 <APITable
   data={[
     {
       attribute: "children",
       type: "ReactNode | ReactNode[]",
-      description: "The contents of the component . Usually the name of button",
-      default: "-",
-    },
-    {
-      attribute: "className",
-      type: "ReactNode | ReactNode[]",
-      description: "The extra classes for user modification .",
-      default: "-",
-    },
-    {
-      attribute: "autoPlay",
-      type: "true | false",
-      description: "Auto dragging of the slide / images .",
-      default: "false",
-    },
-    {
-      attribute: "intervalMs",
-      type: "ms",
-      description: "Time interval between two slide to be dragged.",
+      description:
+        "Slides to be rendered inside the carousel. Typically composed of CarouselItem components.",
       default: "-",
     },
     {
       attribute: "size",
-      type: "sm | md | lg",
-      description: "The Size of carousel area",
+      type: '"sm" | "md" | "lg"',
+      description: "Controls the maximum width of the carousel container.",
+      default: '"md"',
+    },
+    {
+      attribute: "autoPlay",
+      type: "boolean",
+      description: "Enables automatic slide transitions at a fixed interval.",
+      default: "false",
+    },
+    {
+      attribute: "intervalMs",
+      type: "number",
+      description:
+        "Time interval in milliseconds between automatic slide transitions when autoPlay is enabled.",
+      default: "3000",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the carousel container styling.",
       default: "-",
     },
   ]}
 />
+
+<Step>
+  <p className="font-semibold">For Carousel Item</p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | ReactNode[]",
+      description: "Content of an individual carousel slide.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the carousel item styling.",
+      default: "-",
+    },
+  ]}
+/>
+
+</Steps>
 
 ## Examples
 

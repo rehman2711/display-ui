@@ -115,16 +115,89 @@ import {
 
 ### Navigation Menu Props
 
+<Steps>
+
+<Step>
+  <p className="font-semibold">For NavigateMenu Container</p>
+</Step>
+
 <APITable
   data={[
     {
-      attribute: "className",
+      attribute: "children",
       type: "ReactNode | ReactNode[]",
-      description: "The extra classes for user modification .",
+      description:
+        "Navigation items rendered inside the floating navigation menu. Typically composed of NavigateItem components.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the navigation menu container styling.",
       default: "-",
     },
   ]}
 />
+
+<Step>
+  <p className="font-semibold">For NavigateItem Component</p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "src",
+      type: "string",
+      description:
+        "Source URL of the icon image displayed inside the navigation item.",
+      default: "-",
+    },
+    {
+      attribute: "alt",
+      type: "string",
+      description: "Alternative text for the navigation icon image.",
+      default: '""',
+    },
+    {
+      attribute: "size",
+      type: "number",
+      description:
+        "Base size (in pixels) of the navigation item icon. Used for hover scaling behavior.",
+      default: "40",
+    },
+    {
+      attribute: "href",
+      type: "string",
+      description:
+        "Optional URL to open in a new tab when the navigation item is clicked.",
+      default: "-",
+    },
+    {
+      attribute: "onClick",
+      type: "() => void",
+      description:
+        "Optional click handler for the navigation item. Takes precedence over href if provided.",
+      default: "-",
+    },
+    {
+      attribute: "tooltipContent",
+      type: "string",
+      description:
+        "Optional tooltip text displayed when hovering over the navigation item.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the navigation item styling.",
+      default: "-",
+    },
+  ]}
+/>
+
+</Steps>
 
 ## Credits
 

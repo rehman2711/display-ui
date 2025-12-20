@@ -65,45 +65,38 @@ import { Calendar } from "@/components/display-ui/Calendar"
 
 ### Calendar Props
 
+<Steps>
+
+<Step>
+  <p className="font-semibold">For Calendar Component</p>
+</Step>
+
 <APITable
   data={[
     {
-      attribute: "children",
-      type: "ReactNode | ReactNode[]",
-      description: "The contents of the component . Usually the name of button",
-      default: "-",
+      attribute: "border",
+      type: '"primary" | "success" | "none"',
+      description: "Controls the focus ring style of the calendar input.",
+      default: '"none"',
     },
     {
       attribute: "className",
-      type: "ReactNode | ReactNode[]",
-      description: "The extra classes for user modification .",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the calendar input styling.",
       default: "-",
-    },
-    {
-      attribute: "variant",
-      type: "solid | outline | ghost | link",
-      description: "The button appearance style.",
-      default: "solid",
-    },
-    {
-      attribute: "size",
-      type: "sm | md | lg",
-      description: "The button size on viewport.",
-      default: "md",
-    },
-    {
-      attribute: "radius",
-      type: "sm | md | lg | xl | full",
-      description: "The button radius on viewport.",
-      default: "md",
     },
   ]}
 />
 
+</Steps>
+
 ## Examples
 
 ### Default
+
 By default there is no border color to calendar input field
+
 <ComponentPreview title="" name="CalendarDefaultDemo" />
 
 ### Primary Border

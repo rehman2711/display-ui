@@ -58,47 +58,56 @@ import { Separator } from "@/components/display-ui/Separator"
 ```
 
 ```tsx
-<Separator/>
+<Separator />
 ```
 
 ## API
 
 ### Separator Props
 
+<Steps>
+
+<Step>
+  <p className="font-semibold">For Separator Component</p>
+</Step>
+
 <APITable
   data={[
     {
-      attribute: "children",
-      type: "ReactNode | ReactNode[]",
-      description: "The contents of the component . Usually the name of button",
-      default: "-",
-    },
-    {
-      attribute: "className",
-      type: "ReactNode | ReactNode[]",
-      description: "The extra classes for user modification .",
-      default: "-",
-    },
-    {
-      attribute: "bg",
-      type: "solid | outline | ghost | link",
-      description: "Controls the color of separator.",
-      default: "white",
+      attribute: "variant",
+      type: '"default" | "danger" | "success"',
+      description: "Controls the color style of the separator.",
+      default: '"default"',
     },
     {
       attribute: "size",
-      type: "sm | md | lg",
-      description: "The button size on viewport.",
-      default: "md",
+      type: '"sm" | "md" | "lg"',
+      description: "Controls the vertical spacing around the separator.",
+      default: '"md"',
     },
     {
-      attribute: "radius",
-      type: "sm | md | lg | xl | full",
-      description: "The button radius on viewport.",
-      default: "md",
+      attribute: "orientation",
+      type: '"horizontal" | "vertical"',
+      description: "Controls whether the separator is horizontal or vertical.",
+      default: '"horizontal"',
+    },
+    {
+      attribute: "decorative",
+      type: "boolean",
+      description:
+        "When true, renders the separator as decorative only without accessibility semantics.",
+      default: "false",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description: "Additional CSS classes to customize the separator styling.",
+      default: "-",
     },
   ]}
 />
+
+</Steps>
 
 ## Examples
 

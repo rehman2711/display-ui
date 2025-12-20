@@ -65,28 +65,68 @@ import { InputOTP } from "@/components/display-ui/InputOTP"
 
 ### Input Props
 
+<Steps>
+
+<Step>
+  <p className="font-semibold">For OTPInput Component</p>
+</Step>
+
 <APITable
   data={[
     {
       attribute: "length",
-      type: "ReactNode | ReactNode[]",
-      description: "The contents of the component . Usually the name of button",
-      default: "4 Boxes",
+      type: "number",
+      description: "Number of OTP input boxes to render.",
+      default: "4",
+    },
+    {
+      attribute: "onComplete",
+      type: "(otp: string) => void",
+      description:
+        "Callback fired when all OTP digits are filled. Receives the complete OTP string.",
+      default: "-",
+    },
+    {
+      attribute: "value",
+      type: "string",
+      description:
+        "Controlled value for the OTP input. When provided, the component becomes controlled.",
+      default: "-",
     },
     {
       attribute: "autoFocus",
-      type: "ReactNode | ReactNode[]",
-      description: "The extra classes for user modification .",
+      type: "boolean",
+      description: "Automatically focuses the first empty OTP input on mount.",
       default: "true",
     },
     {
-      attribute: "className",
-      type: "ReactNode | ReactNode[]",
-      description: "The extra classes for user modification .",
+      attribute: "disabled",
+      type: "boolean",
+      description: "Disables all OTP input fields.",
+      default: "false",
+    },
+    {
+      attribute: "containerClassName",
+      type: "string",
+      description: "Additional CSS classes applied to the OTP container.",
       default: "-",
+    },
+    {
+      attribute: "inputClassName",
+      type: "string",
+      description: "Additional CSS classes applied to each OTP input field.",
+      default: "-",
+    },
+    {
+      attribute: "ariaLabel",
+      type: "string",
+      description: "Accessible label describing the OTP input group.",
+      default: '"One-time passcode"',
     },
   ]}
 />
+
+</Steps>
 
 ## Examples
 

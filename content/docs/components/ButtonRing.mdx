@@ -3,7 +3,10 @@ title: Button Ring
 description: A circular, outlined button style often used for icon buttons, secondary actions, or floating UI controls.
 ---
 
-<ComponentPreview name="ButtonRingDemo" description=" A Button Ring Component ." />
+<ComponentPreview
+  name="ButtonRingDemo"
+  description=" A Button Ring Component ."
+/>
 
 ## Installation
 
@@ -37,7 +40,7 @@ Copy and paste the following code into your project
 
 </Step>
 
-<ComponentSource title="components/ui/ButtonRing.tsx" name="ButtonRing"/>
+<ComponentSource title="components/ui/ButtonRing.tsx" name="ButtonRing" />
 
 <Step>
 
@@ -65,48 +68,49 @@ import { ButtonRing } from "@/components/display-ui/ButtonRing"
 
 ### Button Props
 
+<Steps>
+
+<Step>
+  <p className="font-semibold">For ButtonRing Component</p>
+</Step>
+
 <APITable
   data={[
     {
-      attribute: "children",
-      type: "ReactNode | ReactNode[]",
-      description:
-        "The contents of the component . Usually the name of button",
-      default: "-",
-    },
-    {
-      attribute: "className",
-      type: "ReactNode | ReactNode[]",
-      description: "The extra classes for user modification .",
-      default: "-",
-    },
-    {
       attribute: "variant",
-      type: "solid | outline | ghost | link",
-      description: "The button appearance style.",
-      default: "solid",
+      type: '"solid" | "primary" | "success" | "danger"',
+      description: "Controls the visual style and color scheme of the button.",
+      default: '"solid"',
     },
     {
       attribute: "size",
-      type: "sm | md | lg",
-      description: "The button size on viewport.",
-      default: "md",
-    },
-    ,
-    {
-      attribute: "RingOff",
-      type: "custom (in number) (in ms)",
-      description: "The time after the ring get turned off.",
-      default: "-",
+      type: '"sm" | "md" | "lg"',
+      description: "Controls the size and padding of the button.",
+      default: '"md"',
     },
     {
       attribute: "radius",
-      type: "sm | md | lg | xl | full",
-      description: "The button radius on viewport.",
-      default: "md",
-    }
+      type: '"sm" | "md" | "lg" | "xl" | "full"',
+      description: "Controls the border radius of the button.",
+      default: '"md"',
+    },
+    {
+      attribute: "RingOff",
+      type: "number",
+      description:
+        "Duration in milliseconds after which the focus ring is removed automatically.",
+      default: "5000",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description: "Additional CSS classes to customize the button styling.",
+      default: "-",
+    },
   ]}
 />
+
+</Steps>
 
 ## Examples
 

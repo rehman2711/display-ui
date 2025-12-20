@@ -89,40 +89,106 @@ import { Card } from "@/components/display-ui/Card"
 
 ### Card Props
 
+<Steps>
+
+<Step>
+  <p className="font-semibold">For Card Main</p>
+</Step>
+
 <APITable
   data={[
     {
       attribute: "children",
       type: "ReactNode | ReactNode[]",
-      description: "The contents of the component . Usually the name of button",
+      description:
+        "Primary container content of the card. Wraps Card.Area and Card.Image components.",
+      default: "-",
+    },
+    {
+      attribute: "shadow",
+      type: '"sm" | "md" | "lg" | "xl"',
+      description: "Controls the shadow depth of the card container.",
+      default: '"md"',
+    },
+    {
+      attribute: "radius",
+      type: '"none" | "sm" | "md" | "lg" | "xl"',
+      description: "Controls the border radius of the card container.",
+      default: '"xl"',
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the card container styling.",
+      default: "-",
+    },
+  ]}
+/>
+
+<Step>
+  <p className="font-semibold">For Card Area</p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | ReactNode[]",
+      description:
+        "Content section inside the card, typically used for text or actions.",
       default: "-",
     },
     {
       attribute: "className",
-      type: "ReactNode | ReactNode[]",
-      description: "The extra classes for user modification .",
+      type: "string",
+      description: "Additional CSS classes to customize the card content area.",
       default: "-",
-    },
-    {
-      attribute: "variant",
-      type: "solid | outline | ghost | link",
-      description: "The button appearance style.",
-      default: "solid",
-    },
-    {
-      attribute: "size",
-      type: "sm | md | lg",
-      description: "The button size on viewport.",
-      default: "md",
-    },
-    {
-      attribute: "radius",
-      type: "sm | md | lg | xl | full",
-      description: "The button radius on viewport.",
-      default: "md",
     },
   ]}
 />
+
+<Step>
+  <p className="font-semibold">For Card Image</p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "src",
+      type: "string",
+      description: "Source URL of the image displayed inside the card.",
+      default: "-",
+    },
+    {
+      attribute: "alt",
+      type: "string",
+      description: "Alternative text describing the image for accessibility.",
+      default: "-",
+    },
+    {
+      attribute: "radius",
+      type: '"none" | "sm" | "md" | "lg" | "xl"',
+      description: "Controls the border radius applied to the card image.",
+      default: '"xl"',
+    },
+    {
+      attribute: "fit",
+      type: '"cover" | "contain" | "fill" | "none" | "scale"',
+      description: "Controls how the image fits within its container.",
+      default: '"cover"',
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the card image styling.",
+      default: "-",
+    },
+  ]}
+/>
+
+</Steps>
 
 ## Credits
 

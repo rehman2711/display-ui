@@ -37,7 +37,10 @@ Copy and paste the following code into your project
 
 </Step>
 
-<ComponentSource title="components/display-ui/AlertDialog.tsx" name="AlertDialog" />
+<ComponentSource
+  title="components/display-ui/AlertDialog.tsx"
+  name="AlertDialog"
+/>
 
 <Step>
 
@@ -79,34 +82,193 @@ import { AlertDialog } from "@/components/display-ui/AlertDialog"
 
 ### Alert-Dialog Props
 
+<Steps>
+
+<Step>
+  <p className="font-semibold"> For Main AlertDialog Content </p>
+</Step>
+
 <APITable
   data={[
     {
       attribute: "children",
       type: "ReactNode | ReactNode[]",
-      description: "The contents of the component . Usually the name of button",
-      default: "-",
-    },
-    {
-      attribute: "className",
-      type: "ReactNode | ReactNode[]",
-      description: "The extra classes for user modification .",
+      description:
+        "The root container for the alert dialog. Must wrap Trigger and Content components.",
       default: "-",
     },
     {
       attribute: "defaultOpen",
-      type: "true | false",
-      description: "The setOpen value for dialog box.",
+      type: "boolean",
+      description:
+        "Controls whether the dialog is open by default on initial render.",
       default: "false",
-    },
-    {
-      attribute: "functions",
-      type: "onClick | onChange",
-      description: "All button properties & functions",
-      default: "onClick",
     },
   ]}
 />
+
+<Step>
+  <p className="font-semibold">For AlertDialog Trigger </p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description:
+        "The content displayed inside the trigger button that opens the dialog.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the trigger button styling.",
+      default: "-",
+    },
+  ]}
+/>
+
+<Step>
+  <p className="font-semibold"> For AlertDialog Content </p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description:
+        "The main dialog content. Typically includes Title, Description, and Actions.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes applied to the dialog content container.",
+      default: "-",
+    },
+  ]}
+/>
+
+<Step>
+  <p className="font-semibold"> For AlertDialog Title </p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description: "The heading text displayed at the top of the dialog.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description: "Additional CSS classes to customize the title styling.",
+      default: "-",
+    },
+  ]}
+/>
+
+<Step>
+  <p className="font-semibold"> For AlertDialog Description </p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description:
+        "Descriptive text providing more context about the dialog action.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description: "Additional CSS classes to customize the description text.",
+      default: "-",
+    },
+  ]}
+/>
+
+<Step>
+  <p className="font-semibold">For AlertDialog Actions </p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | ReactNode[]",
+      description: "Container for action buttons such as Cancel and Confirm.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description: "Additional CSS classes to customize the actions layout.",
+      default: "-",
+    },
+  ]}
+/>
+
+<Step>
+  <p className="font-semibold"> For AlertDialog Content </p>
+</Step>
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description:
+        "Label displayed inside the cancel button. Closes the dialog when clicked.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the cancel button styling.",
+      default: "-",
+    },
+  ]}
+/>
+
+<Step>
+  <p className="font-semibold">For AlertDialog Confirm</p>
+</Step>
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description: "Label displayed inside the confirm button.",
+      default: "-",
+    },
+    {
+      attribute: "onClick",
+      type: "(event: React.MouseEvent<HTMLButtonElement>) => void",
+      description:
+        "Callback fired when the confirm button is clicked. The dialog closes automatically after execution.",
+      default: "-",
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description:
+        "Additional CSS classes to customize the confirm button styling.",
+      default: "-",
+    },
+  ]}
+/>
+
+</Steps>
 
 ## Credits
 

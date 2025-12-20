@@ -63,42 +63,38 @@ import { Badge } from "@/components/display-ui/Badge"
 
 ## API
 
-### Button Props
+### Badge Props
+
+<Steps>
+
+<Step>
+  <p className="font-semibold">For Badge Component</p>
+</Step>
 
 <APITable
   data={[
     {
-      attribute: "children",
-      type: "ReactNode | ReactNode[]",
-      description: "The contents of the component . Usually the name of button",
-      default: "-",
-    },
-    {
-      attribute: "className",
-      type: "ReactNode | ReactNode[]",
-      description: "The extra classes for user modification .",
-      default: "-",
-    },
-    {
       attribute: "variant",
-      type: "solid | outline | ghost | link",
-      description: "The button appearance style.",
-      default: "solid",
-    },
-    {
-      attribute: "size",
-      type: "sm | md | lg",
-      description: "The button size on viewport.",
-      default: "md",
+      type: '"primary" | "danger" | "success" | "warning"',
+      description: "Controls the visual style and color scheme of the badge.",
+      default: '"primary"',
     },
     {
       attribute: "radius",
-      type: "sm | md | lg | xl | full",
-      description: "The button radius on viewport.",
-      default: "md",
+      type: '"sm" | "md" | "lg" | "pill"',
+      description: "Controls the border radius of the badge.",
+      default: '"md"',
+    },
+    {
+      attribute: "className",
+      type: "string",
+      description: "Additional CSS classes to customize the badge styling.",
+      default: "-",
     },
   ]}
 />
+
+</Steps>
 
 ## Examples
 
