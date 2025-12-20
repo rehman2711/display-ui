@@ -23,7 +23,7 @@ const drawerOverlay = cva(
 );
 
 const drawerContent = cva(
-  "fixed bg-white dark:bg-[#0b090a] shadow-xl transition-transform duration-300",
+  "fixed bg-white dark:bg-[#0b090a] border-2 shadow-xl transition-transform duration-300 dark:text-white",
   {
     variants: {
       open: {

@@ -20,7 +20,7 @@ const accordionStyles = cva(
     variants: {
       variant: {
         dark: "bg-black text-white border-2 ring-3 ring-black",
-        light: "bg-white text-black ",
+        light: "bg-white text-black border-2 ring-3 ring-white",
       },
     },
     defaultVariants: {

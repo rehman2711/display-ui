@@ -4,7 +4,7 @@ const PreviewAccordion = () => {
   return (
     <>
       <div className="flex justify-center items-center flex-col">
-        <Accordion.Main>
+        <Accordion.Main variant="light">
           <Accordion.Trigger className="">
             What is Your Name ?
           </Accordion.Trigger>

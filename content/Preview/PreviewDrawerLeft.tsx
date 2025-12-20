@@ -12,7 +12,7 @@ const PreviewDrawerLeft = () => {
           {/* h-[50%] => if top or bottom for overlapping the main screen vertically*/}
           <Drawer.Content className="p-6 bg-white shadow-lg">
             <h2 className="text-lg font-semibold mb-4">Drawer Title</h2>
-            <p className="text-sm text-gray-600 mb-6">
+            <p className="text-sm mb-6">
               This is a simple drawer for testing. You can add any content you
               want here.
             </p>

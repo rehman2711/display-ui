@@ -58,7 +58,7 @@ const Path = forwardRef<HTMLAnchorElement, PathProps>(
       <a
         ref={ref}
         className={cn(
-          "inline-flex items-center gap-1 !text-gray-700",
+          "inline-flex items-center gap-1 text-black dark:text-white hover:underline transition-transform underline-offset-4 duration-300",
           className
         )}
         {...props}

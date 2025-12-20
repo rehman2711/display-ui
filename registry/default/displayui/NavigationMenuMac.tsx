@@ -21,7 +21,7 @@ export function NavigateMenu({ children , className }: { children: React.ReactNo
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
-      className={cn(" fixed bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-end gap-4 px-6 py-3 rounded-2xl bg-black/60 backdrop-blur-md shadow-xl h-[9%]",className)}
+      className={cn(" fixed bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-end gap-4 px-6 py-3 rounded-2xl bg-black/60 dark:bg-white/40 backdrop-blur-md shadow-xl h-[9%]",className)}
       
     >
       {/* Inject mouseX into each child */}

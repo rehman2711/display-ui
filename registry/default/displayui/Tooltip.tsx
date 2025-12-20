@@ -52,19 +52,19 @@ const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
     };
 
     const arrowClasses = {
-      top: "after:border-t-black after:border-t-[6px] after:border-x-transparent after:border-x-[6px] after:absolute after:bottom-[-5px] after:left-1/2 after:-translate-x-1/2",
+      top: "after:border-t-black dark:after:border-t-white after:border-t-[6px] after:border-x-transparent after:border-x-[6px] after:absolute after:bottom-[-5px] after:left-1/2 after:-translate-x-1/2",
       bottom:
-        "after:border-b-black after:border-b-[6px] after:border-x-transparent after:border-x-[6px] after:absolute after:top-[-5px] after:left-1/2 after:-translate-x-1/2",
-      left: "after:border-l-black after:border-l-[6px] after:border-y-transparent after:border-y-[6px] after:absolute after:right-[-5px] after:top-1/2 after:-translate-y-1/2",
+        "after:border-b-black dark:after:border-b-white after:border-b-[6px] after:border-x-transparent after:border-x-[6px] after:absolute after:top-[-5px] after:left-1/2 after:-translate-x-1/2",
+      left: "after:border-l-black dark:after:border-l-white after:border-l-[6px] after:border-y-transparent after:border-y-[6px] after:absolute after:right-[-5px] after:top-1/2 after:-translate-y-1/2",
       right:
-        "after:border-r-black after:border-r-[6px] after:border-y-transparent after:border-y-[6px] after:absolute after:left-[-5px] after:top-1/2 after:-translate-y-1/2",
+        "after:border-r-black dark:after:border-r-white after:border-r-[6px] after:border-y-transparent after:border-y-[6px] after:absolute after:left-[-5px] after:top-1/2 after:-translate-y-1/2",
       simple: "bottom-full left-1/2 -translate-x-1/2 mb-2",
     };
 
     return (
       <div
         className={cn(
-          "absolute z-50 bg-black text-white text-sm px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 transform scale-90 group-hover:scale-100 whitespace-nowrap",
+          "absolute z-50 bg-black text-white dark:bg-white dark:text-black text-sm px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 transform scale-90 group-hover:scale-100 whitespace-nowrap",
           positionClasses[position],
           arrowClasses[position],
           className

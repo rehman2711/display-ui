@@ -5,7 +5,7 @@ const PreviewCard = () => {
   return (
     <>
       <div className="flex justify-center items-center">
-        <Card.Main className="bg-white w-[80%]" shadow="md">
+        <Card.Main className="w-[80%]" shadow="md">
           <Card.Area className="">
             <Card.Image
               className="scale-100"

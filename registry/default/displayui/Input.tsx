@@ -1,8 +1,9 @@
-"use client";
+"use client"
 
-import { cn } from "@/registry/lib/utils";
-import { cva, VariantProps } from "class-variance-authority";
-import { ComponentProps, forwardRef } from "react";
+import { ComponentProps, forwardRef } from "react"
+import { cva, VariantProps } from "class-variance-authority"
+
+import { cn } from "@/registry/lib/utils"
 
 const inputStyles = cva(
   [
@@ -11,7 +12,8 @@ const inputStyles = cva(
     "border",
     "border-gray-300",
     "bg-white",
-    "text-black",
+    "dark:bg-black",
+    "dark:text-white",
     "px-3",
     "py-2",
     "text-sm",
@@ -19,7 +21,8 @@ const inputStyles = cva(
     "disabled:cursor-not-allowed",
     "disabled:opacity-50",
     "[appearance:textfield]",
-    "placeholder:text-sm"
+    "placeholder:text-sm",
+    "placeholder:text-white",
   ],
   {
     variants: {
@@ -35,9 +38,9 @@ const inputStyles = cva(
       border: "primary",
     },
   }
-);
+)
 
-type InputProps = ComponentProps<"input"> & VariantProps<typeof inputStyles>;
+type InputProps = ComponentProps<"input"> & VariantProps<typeof inputStyles>
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ border, className, ...props }, ref) => {
@@ -47,8 +50,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         className={cn(inputStyles({ border }), className)}
         {...props}
       />
-    );
+    )
   }
-);
+)
 
-Input.displayName="Input"
+Input.displayName = "Input"

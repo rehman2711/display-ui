@@ -29,7 +29,7 @@ export const TableHead = forwardRef<HTMLTableSectionElement, TableHeadProps>(
     <thead
       ref={ref}
       className={cn(
-        "bg-muted/50 text-xs font-medium text-black [&_th]:h-12 [&_th]:px-4 [&_th]:text-left",
+        "bg-white dark:bg-black dark:text-white text-xs font-medium text-black [&_th]:h-12 [&_th]:px-4 [&_th]:text-left",
         className
       )}
       {...props}
@@ -47,7 +47,7 @@ export const TableBody = forwardRef<HTMLTableSectionElement, TableBodyProps>(
   ({ className, children, ...props }, ref) => (
     <tbody
       ref={ref}
-      className={cn("[&_tr:last-child]:border-0", className)}
+      className={cn("bg-white dark:bg-black dark:text-white [&_tr:last-child]:border-0", className)}
       {...props}
     >
       {children}
@@ -99,7 +99,7 @@ export const TableCell = forwardRef<HTMLTableCellElement, TableCellProps>(
   ({ className, children, ...props }, ref) => (
     <td
       ref={ref}
-      className={cn("px-4 py-3 align-middle text-black ", className)}
+      className={cn("px-4 py-3 align-middle ", className)}
       {...props}
     >
       {children}

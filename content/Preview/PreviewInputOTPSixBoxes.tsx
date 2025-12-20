@@ -16,8 +16,8 @@ const PreviewInputOTPSixBoxes = () => {
             setOtpValue(val)
           }}
         />
-        <div className="text-sm text-gray-600">
-          Current Value: <span className="font-mono">{otpValue}</span>
+        <div className="text-sm text-black dark:text-white">
+          Current Value: <span className="font-mono text-black dark:text-white">{otpValue}</span>
         </div>
       </div>
     </>

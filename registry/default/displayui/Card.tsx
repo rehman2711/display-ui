@@ -8,7 +8,7 @@ import { ComponentProps, forwardRef, ReactNode } from "react";
 const cardMainVariant = cva(
   [
     "w-full max-w-sm overflow-hidden shadow-md transition-all duration-300",
-    "bg-white text-black",
+    "bg-black/40 dark:bg-white text-white dark:text-black",
   ],
   {
     variants: {
