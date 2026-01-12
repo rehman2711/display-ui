@@ -27,7 +27,7 @@ npx shadcn@latest add button
 
 ## 📖 Documentation
 
-Visit [annui.org]([https://display-ui.vercel.app) for complete documentation.
+Visit [https://display-ui.vercel.app/]([https://display-ui.vercel.app) for complete documentation.
 
 ## 💖 Credits
 
@@ -39,4 +39,4 @@ Display UI is heavily inspired by these excellent projects:
 
 ## 📄 License
 
-MIT © [AnnUI](LICENSE)
+MIT © [DisplayUI](LICENSE)
