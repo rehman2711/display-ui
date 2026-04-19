@@ -2,6 +2,18 @@
 
 Display UI is a collection of re-usable components that you can copy and paste into your web apps.
 
+## 💎 Project Preview
+
+<img width="1900" height="968" alt="image" src="https://github.com/user-attachments/assets/0658a0a4-77f3-46e7-a687-a7bc36e97720" />
+
+---
+
+<img width="1900" height="969" alt="image" src="https://github.com/user-attachments/assets/7c4ae33d-0728-4368-82da-53af1995c816" />
+
+---
+
+
+
 ## ✨ Features
 
 - 🎨 **Highly Customizable** - Inherits shadcn/ui's design philosophy while retaining Radix UI's powerful declarative component design
