@@ -31,11 +31,11 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: "liorael",
-      url: "https://github.com/liorael",
+      name: "rehmankalawant",
+      url: "https://github.com/rehman2711",
     },
   ],
-  creator: "liorael",
+  creator: "rehmankalawant",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: "Display UI - Modern React Component Library",
     description:
       "Display UI is a collection of reusable components that you can copy and paste into your web apps.",
-    creator: "@liorael",
+    creator: "@rehmankalawant",
   },
   metadataBase: new URL("https://display-ui.vercel.app"),
 }

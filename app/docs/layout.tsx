@@ -1,5 +1,5 @@
 import type { ReactNode } from "react"
-import { Book, Pen } from "lucide-react"
+import { Book, User  } from "lucide-react"
 
 import { source } from "@/lib/source"
 import { SidebarProvider } from "@/components/ui/sidebar"
@@ -14,14 +14,14 @@ export default function Layout({ children }: { children: ReactNode }) {
             {
               icon: <TabIcon icon={<Book />} />,
               title: "Display UI",
-              description: "Learn to use Display UI",
+              description: "UI Component Library",
               url: "/docs",
             },
             {
-              icon: <TabIcon icon={<Pen />} />,
+              icon: <TabIcon icon={<User  />} />,
               title: "Portfolio",
-              description: "Rehman Portfolio Website",
-              url: "https://display-ui.vercel.app",
+              description: "Rehman Kalawant Portfolio",
+              url: "https://rehmankalawant.vercel.app",
             },
           ],
         }}
