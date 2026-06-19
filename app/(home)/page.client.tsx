@@ -192,8 +192,8 @@ const BecomeSponsor = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          If you find Display UI helpful, please consider sponsoring us to support
-          our development
+          If you find Display UI helpful, please consider sponsoring us to
+          support our development
         </motion.p>
 
         <motion.a
@@ -267,7 +267,7 @@ const GetStarted = () => {
 
 const Github = () => {
   return (
-    <Link href="https://github.com/rehman2711/display-ui" target="_blank">
+    <Link href="https://github.com/rehmankalawant/display-ui" target="_blank">
       <motion.button
         whileTap={{ scale: 0.95 }}
         className="px-8 py-2 relative overflow-hidden border border-input rounded-lg h-10"

@@ -1,8 +1,9 @@
-"use client";
+"use client"
 
-import { cn } from "@/registry/lib/utils";
-import { cva, VariantProps } from "class-variance-authority";
-import { ComponentProps, forwardRef, ReactNode } from "react";
+import { ComponentProps, forwardRef, ReactNode } from "react"
+import { cva, VariantProps } from "class-variance-authority"
+
+import { cn } from "@/registry/lib/utils"
 
 //  Main Card
 const cardMainVariant = cva(
@@ -31,10 +32,10 @@ const cardMainVariant = cva(
       shadow: "md",
     },
   }
-);
+)
 
 type CardMainProps = ComponentProps<"div"> &
-  VariantProps<typeof cardMainVariant> & { children: ReactNode };
+  VariantProps<typeof cardMainVariant> & { children: ReactNode }
 
 const CardMain = forwardRef<HTMLDivElement, CardMainProps>(
   ({ children, radius, shadow, className, ...props }, ref) => {
@@ -46,14 +47,14 @@ const CardMain = forwardRef<HTMLDivElement, CardMainProps>(
       >
         {children}
       </div>
-    );
+    )
   }
-);
+)
 
-CardMain.displayName="Card.Main"
+CardMain.displayName = "Card.Main"
 
 // Content Area
-type CardAreaProps = ComponentProps<"div"> & { children: ReactNode };
+type CardAreaProps = ComponentProps<"div"> & { children: ReactNode }
 
 const CardArea = forwardRef<HTMLDivElement, CardAreaProps>(
   ({ children, className, ...props }, ref) => (
@@ -61,9 +62,9 @@ const CardArea = forwardRef<HTMLDivElement, CardAreaProps>(
       {children}
     </div>
   )
-);
+)
 
-CardArea.displayName="Card.Area"
+CardArea.displayName = "Card.Area"
 
 // Image Section
 const cardImageVariant = cva(["object-cover"], {
@@ -84,10 +85,10 @@ const cardImageVariant = cva(["object-cover"], {
     },
   },
   defaultVariants: { radius: "xl", fit: "cover" },
-});
+})
 
 type CardImageProps = ComponentProps<"img"> &
-  VariantProps<typeof cardImageVariant>;
+  VariantProps<typeof cardImageVariant>
 
 const CardImage = forwardRef<HTMLImageElement, CardImageProps>(
   ({ radius, fit, className, ...props }, ref) => (
@@ -101,12 +102,12 @@ const CardImage = forwardRef<HTMLImageElement, CardImageProps>(
       {...props}
     />
   )
-);
+)
 
-CardImage.displayName="Card.Image"
+CardImage.displayName = "Card.Image"
 
 export const Card = {
   Main: CardMain,
   Area: CardArea,
   Image: CardImage,
-};
+}

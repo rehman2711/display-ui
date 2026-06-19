@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "rehmankalawant",
-      url: "https://github.com/rehman2711",
+      url: "https://github.com/rehmankalawant",
     },
   ],
   creator: "rehmankalawant",

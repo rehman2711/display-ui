@@ -1,8 +1,10 @@
-"use client";
+"use client"
 
-import React, { ComponentProps, forwardRef, ReactNode } from "react";
-import { cva, VariantProps } from "class-variance-authority";
-import { cn } from "@/registry/lib/utils";
+import React, { ComponentProps, forwardRef, ReactNode } from "react"
+import { cva, VariantProps } from "class-variance-authority"
+
+import { cn } from "@/registry/lib/utils"
+
 // Main wrapper for breadcrumb
 const breadcrumbVariant = cva(["inline-flex items-center"], {
   variants: {
@@ -16,17 +18,17 @@ const breadcrumbVariant = cva(["inline-flex items-center"], {
   defaultVariants: {
     textSize: "md",
   },
-});
+})
 
 type BreadcrumbProps = ComponentProps<"span"> &
   VariantProps<typeof breadcrumbVariant> & {
-    children: ReactNode;
-    separator?: ReactNode;
-  };
+    children: ReactNode
+    separator?: ReactNode
+  }
 
 const BreadcrumbMain = forwardRef<HTMLSpanElement, BreadcrumbProps>(
   ({ textSize, children, className, separator, ...props }, ref) => {
-    const items = React.Children.toArray(children);
+    const items = React.Children.toArray(children)
     return (
       <span
         className={cn(breadcrumbVariant({ textSize }), className)}
@@ -42,15 +44,15 @@ const BreadcrumbMain = forwardRef<HTMLSpanElement, BreadcrumbProps>(
           </span>
         ))}
       </span>
-    );
+    )
   }
-);
+)
 
-BreadcrumbMain.displayName = "Breadcrumb.Main";
+BreadcrumbMain.displayName = "Breadcrumb.Main"
 
 type PathProps = ComponentProps<"a"> & {
-  icon?: ReactNode; // optional icon before the text
-};
+  icon?: ReactNode // optional icon before the text
+}
 
 const Path = forwardRef<HTMLAnchorElement, PathProps>(
   ({ className, icon, children, ...props }, ref) => {
@@ -66,9 +68,9 @@ const Path = forwardRef<HTMLAnchorElement, PathProps>(
         {icon && <span className="inline-flex">{icon}</span>}
         {children}
       </a>
-    );
+    )
   }
-);
+)
 
 Path.displayName = "Path"
 
@@ -76,4 +78,4 @@ Path.displayName = "Path"
 export const Breadcrumb = {
   Main: BreadcrumbMain,
   Path: Path,
-};
+}

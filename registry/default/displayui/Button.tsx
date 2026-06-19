@@ -1,8 +1,10 @@
-"use client";
+"use client"
 
-import { ComponentProps, forwardRef } from "react";
-import { cva, VariantProps } from "class-variance-authority";
-import { cn } from "@/registry/lib/utils";
+import { ComponentProps, forwardRef } from "react"
+import { cva, VariantProps } from "class-variance-authority"
+
+import { cn } from "@/registry/lib/utils"
+
 const buttonVariants = cva(["bg-blue-500 p-2 rounded-md text-white"], {
   variants: {
     variant: {
@@ -31,10 +33,10 @@ const buttonVariants = cva(["bg-blue-500 p-2 rounded-md text-white"], {
     size: "md",
     radius: "md",
   },
-});
+})
 
 type ButtonProps = ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants>;
+  VariantProps<typeof buttonVariants>
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant, size, radius, className, ...props }, ref) => {
@@ -44,8 +46,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(buttonVariants({ variant, size, radius, className }))}
         {...props}
       ></button>
-    );
+    )
   }
-);
+)
 
-Button.displayName="Button"
+Button.displayName = "Button"

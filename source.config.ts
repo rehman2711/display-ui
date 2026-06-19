@@ -16,6 +16,6 @@ export default defineConfig({
       },
       transformers: [...(rehypeCodeDefaultOptions.transformers ?? [])],
     },
-  rehypePlugins: () => [rehypeComponent, rehypeToc],
+    rehypePlugins: () => [rehypeComponent, rehypeToc],
   },
 })

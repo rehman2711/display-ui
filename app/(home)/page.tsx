@@ -125,13 +125,10 @@ const features = [
   },
   {
     title: "TypeScript Ready",
-    description:
-      "Strong typing and autocompletion for safer, faster coding.",
+    description: "Strong typing and autocompletion for safer, faster coding.",
   },
   {
     title: "Responsive by Design",
-    description:
-      "Adapts perfectly across devices for a consistent experience.",
+    description: "Adapts perfectly across devices for a consistent experience.",
   },
-];
-
+]

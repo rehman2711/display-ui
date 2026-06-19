@@ -1,8 +1,9 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { cva, VariantProps } from "class-variance-authority";
-import { cn } from "@/registry/lib/utils";
+import * as React from "react"
+import { cva, VariantProps } from "class-variance-authority"
+
+import { cn } from "@/registry/lib/utils"
 
 const separatorVariants = cva("shrink-0 bg-gray-200", {
   variants: {
@@ -26,12 +27,12 @@ const separatorVariants = cva("shrink-0 bg-gray-200", {
     size: "md",
     orientation: "horizontal",
   },
-});
+})
 
 type SeparatorProps = React.HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof separatorVariants> & {
-    decorative?: boolean;
-  };
+    decorative?: boolean
+  }
 
 export const Separator = React.forwardRef<HTMLDivElement, SeparatorProps>(
   (
@@ -41,8 +42,8 @@ export const Separator = React.forwardRef<HTMLDivElement, SeparatorProps>(
     const semanticProps = decorative
       ? { role: "none" }
       : orientation
-      ? { role: "separator", "aria-orientation": orientation }
-      : { role: "separator" };
+        ? { role: "separator", "aria-orientation": orientation }
+        : { role: "separator" }
     // const semanticProps = decorative
     //   ? { role: "none" }
     //   : { role: "separator", "aria-orientation": orientation };
@@ -57,8 +58,8 @@ export const Separator = React.forwardRef<HTMLDivElement, SeparatorProps>(
         {...semanticProps}
         {...props}
       />
-    );
+    )
   }
-);
+)
 
-Separator.displayName = "Separator";
+Separator.displayName = "Separator"

@@ -1,42 +1,43 @@
-"use client";
+"use client"
 
 import {
+  ComponentProps,
   createContext,
-  useContext,
-  useState,
-  useRef,
-  useEffect,
   forwardRef,
   ReactNode,
-  ComponentProps,
   Ref,
-} from "react";
-import { cn } from "@/registry/lib/utils";
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react"
+
+import { cn } from "@/registry/lib/utils"
 
 // ---------------- Context ----------------
 const DropdownCtx = createContext<{
-  open: boolean;
-  setOpen: (v: boolean) => void;
-} | null>(null);
+  open: boolean
+  setOpen: (v: boolean) => void
+} | null>(null)
 
 function useDropdown() {
-  const ctx = useContext(DropdownCtx);
+  const ctx = useContext(DropdownCtx)
   if (!ctx)
     throw new Error(
       "Dropdown compound components must be inside <DropdownMenu.Main>"
-    );
-  return ctx;
+    )
+  return ctx
 }
 
 // ---------------- Main ----------------
 type DropdownMainProps = ComponentProps<"div"> & {
-  defaultOpen?: boolean;
-};
+  defaultOpen?: boolean
+}
 
 const DropdownMain = forwardRef<HTMLDivElement, DropdownMainProps>(
   ({ children, defaultOpen = false, className, ...props }, ref) => {
-    const [open, setOpen] = useState(defaultOpen);
-    const containerRef = useRef<HTMLDivElement>(null);
+    const [open, setOpen] = useState(defaultOpen)
+    const containerRef = useRef<HTMLDivElement>(null)
 
     // Close when clicking outside
     useEffect(() => {
@@ -45,22 +46,22 @@ const DropdownMain = forwardRef<HTMLDivElement, DropdownMainProps>(
           containerRef.current &&
           !containerRef.current.contains(e.target as Node)
         ) {
-          setOpen(false);
+          setOpen(false)
         }
-      };
-      document.addEventListener("mousedown", handleClick);
-      return () => document.removeEventListener("mousedown", handleClick);
-    }, []);
+      }
+      document.addEventListener("mousedown", handleClick)
+      return () => document.removeEventListener("mousedown", handleClick)
+    }, [])
 
     // Properly forward ref without using `any`
     const setRefs = (node: HTMLDivElement | null) => {
-      containerRef.current = node;
+      containerRef.current = node
       if (typeof ref === "function") {
-        ref(node);
+        ref(node)
       } else if (ref) {
-        (ref as React.MutableRefObject<HTMLDivElement | null>).current = node;
+        ;(ref as React.MutableRefObject<HTMLDivElement | null>).current = node
       }
-    };
+    }
 
     return (
       <DropdownCtx.Provider value={{ open, setOpen }}>
@@ -72,17 +73,17 @@ const DropdownMain = forwardRef<HTMLDivElement, DropdownMainProps>(
           {children}
         </div>
       </DropdownCtx.Provider>
-    );
+    )
   }
-);
-DropdownMain.displayName = "DropdownMenu.Main";
+)
+DropdownMain.displayName = "DropdownMenu.Main"
 
 // ---------------- Trigger ----------------
-type DropdownTriggerProps = ComponentProps<"button"> & { children?: ReactNode };
+type DropdownTriggerProps = ComponentProps<"button"> & { children?: ReactNode }
 
 const DropdownTrigger = forwardRef<HTMLButtonElement, DropdownTriggerProps>(
   ({ children, className, ...props }, ref) => {
-    const { open, setOpen } = useDropdown();
+    const { open, setOpen } = useDropdown()
     return (
       <button
         ref={ref}
@@ -95,18 +96,18 @@ const DropdownTrigger = forwardRef<HTMLButtonElement, DropdownTriggerProps>(
       >
         {children}
       </button>
-    );
+    )
   }
-);
-DropdownTrigger.displayName = "DropdownMenu.Trigger";
+)
+DropdownTrigger.displayName = "DropdownMenu.Trigger"
 
 // ---------------- Content ----------------
-type DropdownContentProps = ComponentProps<"div"> & { children?: ReactNode };
+type DropdownContentProps = ComponentProps<"div"> & { children?: ReactNode }
 
 const DropdownContent = forwardRef<HTMLDivElement, DropdownContentProps>(
   ({ children, className, ...props }, ref) => {
-    const { open } = useDropdown();
-    if (!open) return null;
+    const { open } = useDropdown()
+    if (!open) return null
 
     return (
       <div
@@ -119,24 +120,24 @@ const DropdownContent = forwardRef<HTMLDivElement, DropdownContentProps>(
       >
         {children}
       </div>
-    );
+    )
   }
-);
-DropdownContent.displayName = "DropdownMenu.Content";
+)
+DropdownContent.displayName = "DropdownMenu.Content"
 
 // ---------------- Item ----------------
 type DropdownItemProps = ComponentProps<"button"> & {
-  children?: ReactNode;
-  icon?: ReactNode;
-};
+  children?: ReactNode
+  icon?: ReactNode
+}
 
 const DropdownItem = forwardRef<HTMLButtonElement, DropdownItemProps>(
   ({ children, className, icon, onClick, ...props }, ref) => {
-    const { setOpen } = useDropdown();
+    const { setOpen } = useDropdown()
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-      onClick?.(e);
-      setOpen(false);
-    };
+      onClick?.(e)
+      setOpen(false)
+    }
 
     return (
       <button
@@ -151,10 +152,10 @@ const DropdownItem = forwardRef<HTMLButtonElement, DropdownItemProps>(
         {icon && <span className="inline-flex mr-2">{icon}</span>}
         {children}
       </button>
-    );
+    )
   }
-);
-DropdownItem.displayName = "DropdownMenu.Item";
+)
+DropdownItem.displayName = "DropdownMenu.Item"
 
 // ---------------- Export ----------------
 export const DropdownMenu = {
@@ -162,4 +163,4 @@ export const DropdownMenu = {
   Trigger: DropdownTrigger,
   Content: DropdownContent,
   Item: DropdownItem,
-};
+}

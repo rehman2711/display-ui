@@ -1,11 +1,12 @@
-"use client";
+"use client"
 
-import { ComponentProps, forwardRef, ReactNode } from "react";
-import { cva, VariantProps } from "class-variance-authority";
-import { cn } from "@/registry/lib/utils";
+import { ComponentProps, forwardRef, ReactNode } from "react"
+import { cva, VariantProps } from "class-variance-authority"
+
+import { cn } from "@/registry/lib/utils"
 
 /* ---------- Menu Bar ---------- */
-type NavigationMenuBarProps = ComponentProps<"div"> & { children: ReactNode };
+type NavigationMenuBarProps = ComponentProps<"div"> & { children: ReactNode }
 
 export const NavigationMenuBar = forwardRef<
   HTMLDivElement,
@@ -23,17 +24,17 @@ export const NavigationMenuBar = forwardRef<
   >
     {children}
   </div>
-));
-NavigationMenuBar.displayName = "NavigationMenuBar";
+))
+NavigationMenuBar.displayName = "NavigationMenuBar"
 
 /* ---------- Menu Item ---------- */
 const navigationMenuItemVariant = cva([
   "text-white hover:text-gray-300 transition-colors",
-]);
+])
 
 type NavigationMenuItemProps = ComponentProps<"a"> & {
-  children: ReactNode;
-} & VariantProps<typeof navigationMenuItemVariant>;
+  children: ReactNode
+} & VariantProps<typeof navigationMenuItemVariant>
 
 export const NavigationMenuItem = forwardRef<
   HTMLAnchorElement,
@@ -46,11 +47,11 @@ export const NavigationMenuItem = forwardRef<
   >
     {children}
   </a>
-));
-NavigationMenuItem.displayName = "NavigationMenuItem";
+))
+NavigationMenuItem.displayName = "NavigationMenuItem"
 
 /* ---------- Menu Logo ---------- */
-type NavigationMenuLogoProps = ComponentProps<"img">;
+type NavigationMenuLogoProps = ComponentProps<"img">
 
 export const NavigationMenuLogo = forwardRef<
   HTMLImageElement,
@@ -61,5 +62,5 @@ export const NavigationMenuLogo = forwardRef<
     className={cn("h-10 w-auto object-contain select-none", className)}
     {...props}
   />
-));
-NavigationMenuLogo.displayName = "NavigationMenuLogo";
+))
+NavigationMenuLogo.displayName = "NavigationMenuLogo"

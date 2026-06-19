@@ -72,7 +72,13 @@ const Header = () => {
             className="flex items-center gap-2 font-medium text-xl"
             icon={isMobile}
           >
-            <Image src="/logo.png" alt="Display UI" width={32} height={32} className="rounded-md p-[2px]" />
+            <Image
+              src="/logo.png"
+              alt="Display UI"
+              width={32}
+              height={32}
+              className="rounded-md p-[2px]"
+            />
             <span className="max-md:hidden">Display UI</span>
           </Item>
         </Link>
@@ -83,12 +89,18 @@ const Header = () => {
         </div>
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Link href="https://github.com/rehman2711/display-ui" target="_blank" >
+          <Link
+            href="https://github.com/rehmankalawant/display-ui"
+            target="_blank"
+          >
             <Item icon>
               <Icons.Github />
             </Item>
           </Link>
-          <Link href="https://www.linkedin.com/in/rehmankalawant" target="_blank" >
+          <Link
+            href="https://www.linkedin.com/in/rehmankalawant"
+            target="_blank"
+          >
             <Item icon>
               <Icons.Linkedin />
             </Item>
@@ -183,12 +195,18 @@ const Footer = () => {
         transition={{ delay: 0.2 }}
       >
         <div className="flex items-center gap-4">
-          <Link href="https://github.com/rehman2711/display-ui" target="_blank" >
+          <Link
+            href="https://github.com/rehmankalawant/display-ui"
+            target="_blank"
+          >
             <Item icon>
               <Icons.Github />
             </Item>
           </Link>
-          <Link href="https://www.linkedin.com/in/rehmankalawant" target="_blank" >
+          <Link
+            href="https://www.linkedin.com/in/rehmankalawant"
+            target="_blank"
+          >
             <Item icon>
               <Icons.Linkedin />
             </Item>

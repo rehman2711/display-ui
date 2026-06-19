@@ -1,11 +1,11 @@
-import { existsSync, promises as fs } from "fs";
-import path from "path";
-import { rimraf } from "rimraf";
+import { existsSync, promises as fs } from "fs"
+import path from "path"
+import { rimraf } from "rimraf"
 
-import { registry } from "../registry";
+import { registry } from "../registry"
 
-const REGISTRY_INDEX_PATH = path.join(process.cwd(), "__registry__/index.tsx");
-const REGISTRY_DIR = path.join(process.cwd(), "public/r");
+const REGISTRY_INDEX_PATH = path.join(process.cwd(), "__registry__/index.tsx")
+const REGISTRY_DIR = path.join(process.cwd(), "public/r")
 
 async function buildSimpleRegistry() {
   let index = `// @ts-nocheck
@@ -13,12 +13,12 @@ async function buildSimpleRegistry() {
 import * as React from "react"
 
 export const Index: Record<string, any> = {
-`;
+`
 
   for (const item of registry) {
     // Assume files is just a single string path
-    const filePath = item.files?.[0] || "";
-    const componentPath = `@/registry/${filePath}`;
+    const filePath = item.files?.[0] || ""
+    const componentPath = `@/registry/${filePath}`
 
     index += `
   "${item.name}": {
@@ -27,26 +27,26 @@ export const Index: Record<string, any> = {
     description: "${item.description || ""}",
     files: ["${filePath}"],
     component: React.lazy(() => import("${componentPath}")),
-  },`;
+  },`
   }
 
   index += `
 }
-`;
+`
 
   // Write __registry__/index.tsx
-  rimraf.sync(REGISTRY_INDEX_PATH);
-  await fs.writeFile(REGISTRY_INDEX_PATH, index, "utf8");
+  rimraf.sync(REGISTRY_INDEX_PATH)
+  await fs.writeFile(REGISTRY_INDEX_PATH, index, "utf8")
 
   // Also generate simple index.json
-  rimraf.sync(path.join(REGISTRY_DIR, "index.json"));
+  rimraf.sync(path.join(REGISTRY_DIR, "index.json"))
   await fs.writeFile(
     path.join(REGISTRY_DIR, "index.json"),
     JSON.stringify(registry, null, 2),
     "utf8"
-  );
+  )
 
-  console.log("✅ Simple registry built!");
+  console.log("✅ Simple registry built!")
 }
 
-buildSimpleRegistry().catch(console.error);
+buildSimpleRegistry().catch(console.error)

@@ -1,16 +1,18 @@
-"use client";
+"use client"
 
 import {
   ComponentProps,
-  ReactNode,
-  forwardRef,
   createContext,
+  forwardRef,
+  ReactNode,
   useContext,
-  useState,
   useEffect,
-} from "react";
-import { cva } from "class-variance-authority";
-import { cn } from "@/registry/lib/utils";
+  useState,
+} from "react"
+import { cva } from "class-variance-authority"
+
+import { cn } from "@/registry/lib/utils"
+
 // ---------------- Styles ----------------
 const dialogOverlay = cva(
   "fixed inset-0 bg-black/40 flex items-center justify-center z-50 transition-opacity duration-300",
@@ -19,7 +21,7 @@ const dialogOverlay = cva(
       open: { true: "opacity-100", false: "opacity-0 pointer-events-none" },
     },
   }
-);
+)
 
 const dialogContent = cva(
   "bg-white dark:bg-[#0b090a] rounded-xl shadow-lg p-6 w-[90%] max-w-md transition-transform duration-300",
@@ -28,56 +30,56 @@ const dialogContent = cva(
       open: { true: "scale-100 opacity-100", false: "scale-95 opacity-0" },
     },
   }
-);
+)
 
 // ---------------- Context ----------------
 const DialogCtx = createContext<{
-  open: boolean;
-  setOpen: (v: boolean) => void;
-} | null>(null);
+  open: boolean
+  setOpen: (v: boolean) => void
+} | null>(null)
 
 function useDialog() {
-  const ctx = useContext(DialogCtx);
+  const ctx = useContext(DialogCtx)
   if (!ctx)
     throw new Error(
       "AlertDialog compound components must be inside <AlertDialog.Main>"
-    );
-  return ctx;
+    )
+  return ctx
 }
 
 // ---------------- Main ----------------
 type DialogMainProps = ComponentProps<"div"> & {
-  defaultOpen?: boolean;
-};
+  defaultOpen?: boolean
+}
 
 const DialogMain = forwardRef<HTMLDivElement, DialogMainProps>(
   ({ children, defaultOpen = false }, ref) => {
-    const [open, setOpen] = useState(defaultOpen);
+    const [open, setOpen] = useState(defaultOpen)
 
     // Close on ESC
     useEffect(() => {
       const onKey = (e: KeyboardEvent) => {
-        if (e.key === "Escape") setOpen(false);
-      };
-      window.addEventListener("keydown", onKey);
-      return () => window.removeEventListener("keydown", onKey);
-    }, []);
+        if (e.key === "Escape") setOpen(false)
+      }
+      window.addEventListener("keydown", onKey)
+      return () => window.removeEventListener("keydown", onKey)
+    }, [])
 
     return (
       <DialogCtx.Provider value={{ open, setOpen }}>
         <div ref={ref}>{children}</div>
       </DialogCtx.Provider>
-    );
+    )
   }
-);
-DialogMain.displayName = "AlertDialog.Main";
+)
+DialogMain.displayName = "AlertDialog.Main"
 
 // ---------------- Trigger ----------------
-type DialogTriggerProps = ComponentProps<"button"> & { children?: ReactNode };
+type DialogTriggerProps = ComponentProps<"button"> & { children?: ReactNode }
 
 const DialogTrigger = forwardRef<HTMLButtonElement, DialogTriggerProps>(
   ({ children, className, ...props }, ref) => {
-    const { setOpen } = useDialog();
+    const { setOpen } = useDialog()
     return (
       <button
         ref={ref}
@@ -90,17 +92,17 @@ const DialogTrigger = forwardRef<HTMLButtonElement, DialogTriggerProps>(
       >
         {children}
       </button>
-    );
+    )
   }
-);
-DialogTrigger.displayName = "AlertDialog.Trigger";
+)
+DialogTrigger.displayName = "AlertDialog.Trigger"
 
 // ---------------- Content ----------------
-type DialogContentProps = ComponentProps<"div"> & { children?: ReactNode };
+type DialogContentProps = ComponentProps<"div"> & { children?: ReactNode }
 
 const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
   ({ children, className, ...props }, ref) => {
-    const { open, setOpen } = useDialog();
+    const { open, setOpen } = useDialog()
 
     return (
       <div
@@ -116,52 +118,52 @@ const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
           {children}
         </div>
       </div>
-    );
+    )
   }
-);
-DialogContent.displayName = "AlertDialog.Content";
+)
+DialogContent.displayName = "AlertDialog.Content"
 
 // ---------------- Subcomponents ----------------
 const DialogTitle = ({
   children,
   className,
 }: {
-  children?: ReactNode;
-  className?: string;
+  children?: ReactNode
+  className?: string
 }) => (
   <h2 className={cn("text-red-500 text-xl font-semibold mb-2", className)}>
     {children}
   </h2>
-);
+)
 
 const DialogDescription = ({
   children,
   className,
 }: {
-  children?: ReactNode;
-  className?: string;
+  children?: ReactNode
+  className?: string
 }) => (
   <p className={cn("text-sm text-black dark:text-white mb-4", className)}>
     {children}
   </p>
-);
+)
 
 const DialogActions = ({
   children,
   className,
 }: {
-  children?: ReactNode;
-  className?: string;
+  children?: ReactNode
+  className?: string
 }) => (
   <div className={cn("flex justify-end gap-3 mt-4", className)}>{children}</div>
-);
+)
 
 const DialogCancel = ({
   children,
   className,
   ...props
 }: ComponentProps<"button">) => {
-  const { setOpen } = useDialog();
+  const { setOpen } = useDialog()
   return (
     <button
       onClick={() => setOpen(false)}
@@ -173,8 +175,8 @@ const DialogCancel = ({
     >
       {children}
     </button>
-  );
-};
+  )
+}
 
 const DialogConfirm = ({
   children,
@@ -182,12 +184,12 @@ const DialogConfirm = ({
   onClick,
   ...props
 }: ComponentProps<"button">) => {
-  const { setOpen } = useDialog();
+  const { setOpen } = useDialog()
 
   const handleConfirm = (e: React.MouseEvent<HTMLButtonElement>) => {
-    onClick?.(e); // ✅ use actual React synthetic event
-    setOpen(false);
-  };
+    onClick?.(e) // ✅ use actual React synthetic event
+    setOpen(false)
+  }
 
   return (
     <button
@@ -200,8 +202,8 @@ const DialogConfirm = ({
     >
       {children}
     </button>
-  );
-};
+  )
+}
 
 // ---------------- Export ----------------
 export const AlertDialog = {
@@ -213,7 +215,7 @@ export const AlertDialog = {
   Actions: DialogActions,
   Cancel: DialogCancel,
   Confirm: DialogConfirm,
-};
+}
 
 // ---------------- Example Usage ----------------
 // export function AlertDialogExample() {

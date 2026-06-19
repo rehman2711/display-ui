@@ -1,8 +1,9 @@
-"use client";
+"use client"
 
-import { ComponentProps, forwardRef } from "react";
-import { cva, VariantProps } from "class-variance-authority";
-import { cn } from "@/registry/lib/utils";
+import { ComponentProps, forwardRef } from "react"
+import { cva, VariantProps } from "class-variance-authority"
+
+import { cn } from "@/registry/lib/utils"
 
 const checkBoxVariant = cva([], {
   variants: {
@@ -22,10 +23,10 @@ const checkBoxVariant = cva([], {
     variant: "primary",
     boxSize: "md",
   },
-});
+})
 
 type CheckBoxProps = ComponentProps<"input"> &
-  VariantProps<typeof checkBoxVariant>;
+  VariantProps<typeof checkBoxVariant>
 
 export const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
   ({ variant, boxSize, className, ...props }, ref) => {
@@ -38,8 +39,8 @@ export const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
           {...props}
         />
       </>
-    );
+    )
   }
-);
+)
 
-CheckBox.displayName="CheckBox"
+CheckBox.displayName = "CheckBox"

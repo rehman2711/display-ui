@@ -7,7 +7,7 @@ const PreviewInputPassword = () => {
         border="primary"
         type="password"
         placeholder="Enter Your Password"
-         className="w-2/4"
+        className="w-2/4"
       />
     </>
   )

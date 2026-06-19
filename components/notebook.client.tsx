@@ -146,7 +146,7 @@ export function DocsNavbar() {
       <ThemeToggle className="p-0 max-md:hidden" />
       <Link
         className="ml-auto [&_svg]:size-7 [&_svg]:fill-current hover:bg-secondary hover:text-secondary-foreground rounded-md p-1.5"
-        href="https://github.com/rehman2711/display-ui"
+        href="https://github.com/rehmankalawant/display-ui"
         target="_blank"
       >
         <Icons.Github />

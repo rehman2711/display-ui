@@ -27,7 +27,10 @@ export function CodeBlockWrapper({
 
   return (
     <Collapsible open={isOpened} onOpenChange={setIsOpened}>
-      <div className={cn("relative overflow-hidden space-y-1", className)} {...props}>
+      <div
+        className={cn("relative overflow-hidden space-y-1", className)}
+        {...props}
+      >
         {title ? (
           // control the text size from here
           <div className="p-2 bg-black/10 dark:bg-white/15 border-b border-muted/30 text-sm text-muted-foreground">
@@ -39,12 +42,12 @@ export function CodeBlockWrapper({
           initialHeight={128}
           className={cn("overflow-hidden")}
         >
-
-          
           <div
             className={cn(
               "[&_figure]:my-0 [&_pre]:max-h-[650px] [&_pre]:pb-[100px]",
-              !isOpened ? "[_&amp;_pre]:overflow-hidden" : "[&_pre]:overflow-auto rounded-none"
+              !isOpened
+                ? "[_&amp;_pre]:overflow-hidden"
+                : "[&_pre]:overflow-auto rounded-none"
             )}
           >
             {children}

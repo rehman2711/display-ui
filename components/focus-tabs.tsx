@@ -14,7 +14,7 @@ const Tabs = React.forwardRef<
 >(({ value, onValueChange, defaultValue, ...props }, ref) => {
   const [activeTab, setActiveTab] = useControllableState({
     prop: value,
-    defaultProp: defaultValue ?? "" ,
+    defaultProp: defaultValue ?? "",
     onChange: onValueChange,
   })
 

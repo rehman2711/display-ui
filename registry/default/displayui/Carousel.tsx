@@ -1,18 +1,19 @@
-"use client";
+"use client"
 
-import { cn } from "@/registry/lib/utils";
-import { cva, VariantProps } from "class-variance-authority";
 import {
-  ComponentProps,
-  forwardRef,
-  ReactNode,
-  useState,
-  useEffect,
   Children,
   cloneElement,
+  ComponentProps,
+  forwardRef,
   ReactElement,
-} from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+  ReactNode,
+  useEffect,
+  useState,
+} from "react"
+import { cva, VariantProps } from "class-variance-authority"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+
+import { cn } from "@/registry/lib/utils"
 
 // ---------------- Variants ----------------
 const carouselVariants = cva("relative w-full overflow-hidden", {
@@ -26,15 +27,15 @@ const carouselVariants = cva("relative w-full overflow-hidden", {
   defaultVariants: {
     size: "md",
   },
-});
+})
 
 // ---------------- Types ----------------
 type CarouselProps = ComponentProps<"div"> &
   VariantProps<typeof carouselVariants> & {
-    children: ReactNode;
-    autoPlay?: boolean;
-    intervalMs?: number;
-  };
+    children: ReactNode
+    autoPlay?: boolean
+    intervalMs?: number
+  }
 
 // ---------------- Main Component ----------------
 export const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
@@ -51,48 +52,48 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
   ) => {
     const items = Children.toArray(children).filter(
       (child): child is ReactElement => !!child && typeof child === "object"
-    );
-    const count = items.length;
+    )
+    const count = items.length
 
     // Start at 1 (first real slide, because of clones)
-    const [index, setIndex] = useState(1);
-    const [transitioning, setTransitioning] = useState(true);
+    const [index, setIndex] = useState(1)
+    const [transitioning, setTransitioning] = useState(true)
 
-    const next = () => setIndex((i) => i + 1);
-    const prev = () => setIndex((i) => i - 1);
+    const next = () => setIndex((i) => i + 1)
+    const prev = () => setIndex((i) => i - 1)
 
     // Auto play
     useEffect(() => {
-      if (!autoPlay) return;
-      const t = setInterval(next, intervalMs);
-      return () => clearInterval(t);
-    }, [autoPlay, intervalMs]);
+      if (!autoPlay) return
+      const t = setInterval(next, intervalMs)
+      return () => clearInterval(t)
+    }, [autoPlay, intervalMs])
 
     // Handle instant jump when hitting clones
     useEffect(() => {
       if (index === count + 1) {
         const t = setTimeout(() => {
-          setTransitioning(false);
-          setIndex(1);
-        }, 500);
-        return () => clearTimeout(t);
+          setTransitioning(false)
+          setIndex(1)
+        }, 500)
+        return () => clearTimeout(t)
       }
       if (index === 0) {
         const t = setTimeout(() => {
-          setTransitioning(false);
-          setIndex(count);
-        }, 500);
-        return () => clearTimeout(t);
+          setTransitioning(false)
+          setIndex(count)
+        }, 500)
+        return () => clearTimeout(t)
       }
-      setTransitioning(true);
-    }, [index, count]);
+      setTransitioning(true)
+    }, [index, count])
 
     // Prepare slides [lastClone, ...items, firstClone]
     const slides: ReactElement[] = [
       cloneElement(items[count - 1], { key: "last-clone" }),
       ...items,
       cloneElement(items[0], { key: "first-clone" }),
-    ];
+    ]
 
     return (
       <div
@@ -127,13 +128,13 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
           {slides}
         </div>
       </div>
-    );
+    )
   }
-);
-Carousel.displayName = "Carousel";
+)
+Carousel.displayName = "Carousel"
 
 // ---------------- Item ----------------
-type CarouselItemProps = ComponentProps<"div"> & { children: ReactNode };
+type CarouselItemProps = ComponentProps<"div"> & { children: ReactNode }
 
 export const CarouselItem = forwardRef<HTMLDivElement, CarouselItemProps>(
   ({ className, children, ...props }, ref) => (
@@ -141,5 +142,5 @@ export const CarouselItem = forwardRef<HTMLDivElement, CarouselItemProps>(
       {children}
     </div>
   )
-);
-CarouselItem.displayName = "CarouselItem";
+)
+CarouselItem.displayName = "CarouselItem"

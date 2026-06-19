@@ -17,7 +17,10 @@ const PreviewInputOTP = () => {
           }}
         />
         <div className="text-sm text-black dark:text-white">
-          Current Value: <span className="font-mono text-black dark:text-white">{otpValue}</span>
+          Current Value:{" "}
+          <span className="font-mono text-black dark:text-white">
+            {otpValue}
+          </span>
         </div>
       </div>
     </>

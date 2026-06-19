@@ -8,16 +8,16 @@ const PreviewBadgeDefault = () => {
           <b>Badge</b>
         </Badge>
         <Badge variant="primary" radius="sm">
-        Badge
+          Badge
         </Badge>
         <Badge variant="primary" radius="md">
-        Badge
+          Badge
         </Badge>
         <Badge variant="primary" radius="lg">
-        Badge
+          Badge
         </Badge>
         <Badge variant="primary" radius="pill">
-        Badge
+          Badge
         </Badge>
       </div>
     </>

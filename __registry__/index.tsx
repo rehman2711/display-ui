@@ -30,54 +30,54 @@ import PreviewCalendarDefault from "@/content/Preview/PreviewCalendarDefault"
 import PreviewCalendarPrimary from "@/content/Preview/PreviewCalendarPrimary"
 import PreviewCalendarSuccess from "@/content/Preview/PreviewCalendarSuccess"
 import PreviewCard from "@/content/Preview/PreviewCard"
-import PreviewCheckBox from "@/content/Preview/PreviewCheckBox"
-import PreviewDrawer from "@/content/Preview/PreviewDrawer"
-import PreviewDropdownMenu from "@/content/Preview/PreviewDropdownMenu"
-import PreviewInfiniteCarousel from "@/content/Preview/PreviewInfiniteCarousel"
-import PreviewInputOTP from "@/content/Preview/PreviewInputOTP"
-import PreviewLabel from "@/content/Preview/PreviewLabel"
-import PreviewNavigationMenu from "@/content/Preview/PreviewNavigationMenu"
-import PreviewNavigationMenuMac from "@/content/Preview/PreviewNavigationMenuMac"
-import PreviewRadioGroups from "@/content/Preview/PreviewRadioGroups"
-import PreviewSeparator from "@/content/Preview/PreviewSeparator"
-import PreviewTable from "@/content/Preview/PreviewTable"
-import PreviewToaster from "@/content/Preview/PreviewToaster"
-import PreviewTooltip from "@/content/Preview/PreviewTooltip"
 import PreviewCarousel from "@/content/Preview/PreviewCarousel"
 import PreviewCarouselWithAutoplayIntervals from "@/content/Preview/PreviewCarouselWithAutoplayIntervals"
-import PreviewCheckBoxDefault from "@/content/Preview/PreviewCheckBoxDefault"
-import PreviewCheckBoxPrimary from "@/content/Preview/PreviewCheckBoxDark"
-import PreviewCheckBoxSuccess from "@/content/Preview/PreviewCheckBoxSuccess"
+import PreviewCheckBox from "@/content/Preview/PreviewCheckBox"
 import PreviewCheckBoxDanger from "@/content/Preview/PreviewCheckBoxDanger"
+import PreviewCheckBoxPrimary from "@/content/Preview/PreviewCheckBoxDark"
 import PreviewCheckBoxDark from "@/content/Preview/PreviewCheckBoxDark"
-import PreviewDrawerTop from "@/content/Preview/PreviewDrawerTop"
+import PreviewCheckBoxDefault from "@/content/Preview/PreviewCheckBoxDefault"
+import PreviewCheckBoxSuccess from "@/content/Preview/PreviewCheckBoxSuccess"
+import PreviewDrawer from "@/content/Preview/PreviewDrawer"
 import PreviewDrawerBottom from "@/content/Preview/PreviewDrawerBottom"
 import PreviewDrawerLeft from "@/content/Preview/PreviewDrawerLeft"
 import PreviewDrawerRight from "@/content/Preview/PreviewDrawerRight"
-import PreviewInfiniteCarouselWithPause from "@/content/Preview/PreviewInfiniteCarouselWithPause"
+import PreviewDrawerTop from "@/content/Preview/PreviewDrawerTop"
+import PreviewDropdownMenu from "@/content/Preview/PreviewDropdownMenu"
+import PreviewInfiniteCarousel from "@/content/Preview/PreviewInfiniteCarousel"
 import PreviewInfiniteCarouselWithoutPause from "@/content/Preview/PreviewInfiniteCarouselWithoutPause"
+import PreviewInfiniteCarouselWithPause from "@/content/Preview/PreviewInfiniteCarouselWithPause"
 import PreviewInput from "@/content/Preview/PreviewInput"
-import PreviewInputText from "@/content/Preview/PreviewInputText"
 import PreviewInputEmail from "@/content/Preview/PreviewInputEmail"
-import PreviewInputPassword from "@/content/Preview/PreviewInputPassword"
 import PreviewInputNumber from "@/content/Preview/PreviewInputNumber"
+import PreviewInputOTP from "@/content/Preview/PreviewInputOTP"
 import PreviewInputOTPSixBoxes from "@/content/Preview/PreviewInputOTPSixBoxes"
+import PreviewInputPassword from "@/content/Preview/PreviewInputPassword"
+import PreviewInputText from "@/content/Preview/PreviewInputText"
+import PreviewLabel from "@/content/Preview/PreviewLabel"
+import PreviewNavigationMenu from "@/content/Preview/PreviewNavigationMenu"
+import PreviewNavigationMenuMac from "@/content/Preview/PreviewNavigationMenuMac"
 import PreviewNavigationMenuMacWithTooltip from "@/content/Preview/PreviewNavigationMenuMacWithTooltip"
-import PreviewRadioGroupDefault from "@/content/Preview/PreviewRadioGroupsDefault"
-import PreviewRadioGroupWarning from "@/content/Preview/PreviewRadioGroupsWarning"
-import PreviewRadioGroupSuccess from "@/content/Preview/PreviewRadioGroupsSuccess"
+import PreviewRadioGroups from "@/content/Preview/PreviewRadioGroups"
 import PreviewRadioGroupDanger from "@/content/Preview/PreviewRadioGroupsDanger"
+import PreviewRadioGroupDefault from "@/content/Preview/PreviewRadioGroupsDefault"
+import PreviewRadioGroupSuccess from "@/content/Preview/PreviewRadioGroupsSuccess"
+import PreviewRadioGroupWarning from "@/content/Preview/PreviewRadioGroupsWarning"
+import PreviewSeparator from "@/content/Preview/PreviewSeparator"
 import PreviewSeparatorHorizontal from "@/content/Preview/PreviewSeparatorHorizontal"
 import PreviewSeparatorVertical from "@/content/Preview/PreviewSeparatorVertical"
-import PreviewToasterInfo from "@/content/Preview/PreviewToasterInfo"
-import PreviewToasterWarning from "@/content/Preview/PreviewToasterWarning"
-import PreviewToasterSuccess from "@/content/Preview/PreviewToasterSuccess"
+import PreviewTable from "@/content/Preview/PreviewTable"
+import PreviewToaster from "@/content/Preview/PreviewToaster"
 import PreviewToasterError from "@/content/Preview/PreviewToasterError"
-import PreviewTooltipDefault from "@/content/Preview/PreviewTooltipDefault"
-import PreviewTooltipTop from "@/content/Preview/PreviewTooltipTop"
+import PreviewToasterInfo from "@/content/Preview/PreviewToasterInfo"
+import PreviewToasterSuccess from "@/content/Preview/PreviewToasterSuccess"
+import PreviewToasterWarning from "@/content/Preview/PreviewToasterWarning"
+import PreviewTooltip from "@/content/Preview/PreviewTooltip"
 import PreviewTooltipBottom from "@/content/Preview/PreviewTooltipBottom"
+import PreviewTooltipDefault from "@/content/Preview/PreviewTooltipDefault"
 import PreviewTooltipLeft from "@/content/Preview/PreviewTooltipLeft"
 import PreviewTooltipRight from "@/content/Preview/PreviewTooltipRight"
+import PreviewTooltipTop from "@/content/Preview/PreviewTooltipTop"
 
 export const Index: Record<string, any> = {
   default: {
@@ -654,7 +654,10 @@ export const Index: Record<string, any> = {
       name: "Drawer",
       type: "registry:example",
       files: [
-        { path: "content/Preview/PreviewDrawerTop.tsx", type: "registry:example" },
+        {
+          path: "content/Preview/PreviewDrawerTop.tsx",
+          type: "registry:example",
+        },
       ],
       component: PreviewDrawerTop,
     },
@@ -663,7 +666,10 @@ export const Index: Record<string, any> = {
       name: "Drawer",
       type: "registry:example",
       files: [
-        { path: "content/Preview/PreviewDrawerBottom.tsx", type: "registry:example" },
+        {
+          path: "content/Preview/PreviewDrawerBottom.tsx",
+          type: "registry:example",
+        },
       ],
       component: PreviewDrawerBottom,
     },
@@ -672,7 +678,10 @@ export const Index: Record<string, any> = {
       name: "Drawer",
       type: "registry:example",
       files: [
-        { path: "content/Preview/PreviewDrawerLeft.tsx", type: "registry:example" },
+        {
+          path: "content/Preview/PreviewDrawerLeft.tsx",
+          type: "registry:example",
+        },
       ],
       component: PreviewDrawerLeft,
     },
@@ -681,7 +690,10 @@ export const Index: Record<string, any> = {
       name: "Drawer",
       type: "registry:example",
       files: [
-        { path: "content/Preview/PreviewDrawerRight.tsx", type: "registry:example" },
+        {
+          path: "content/Preview/PreviewDrawerRight.tsx",
+          type: "registry:example",
+        },
       ],
       component: PreviewDrawerRight,
     },
@@ -748,7 +760,7 @@ export const Index: Record<string, any> = {
       component: PreviewInfiniteCarouselWithPause,
     },
 
-        InfiniteCarouselWithoutPauseDemo: {
+    InfiniteCarouselWithoutPauseDemo: {
       name: "InfiniteCarousel",
       type: "registry:example",
       files: [
@@ -786,7 +798,10 @@ export const Index: Record<string, any> = {
       name: "Input",
       type: "registry:example",
       files: [
-        { path: "content/Preview/PreviewInputText.tsx", type: "registry:example" },
+        {
+          path: "content/Preview/PreviewInputText.tsx",
+          type: "registry:example",
+        },
       ],
       component: PreviewInputText,
     },
@@ -795,7 +810,10 @@ export const Index: Record<string, any> = {
       name: "Input",
       type: "registry:example",
       files: [
-        { path: "content/Preview/PreviewInputEmail.tsx", type: "registry:example" },
+        {
+          path: "content/Preview/PreviewInputEmail.tsx",
+          type: "registry:example",
+        },
       ],
       component: PreviewInputEmail,
     },
@@ -804,7 +822,10 @@ export const Index: Record<string, any> = {
       name: "Input",
       type: "registry:example",
       files: [
-        { path: "content/Preview/PreviewInputPassword.tsx", type: "registry:example" },
+        {
+          path: "content/Preview/PreviewInputPassword.tsx",
+          type: "registry:example",
+        },
       ],
       component: PreviewInputPassword,
     },
@@ -813,7 +834,10 @@ export const Index: Record<string, any> = {
       name: "Input",
       type: "registry:example",
       files: [
-        { path: "content/Preview/PreviewInputNumber.tsx", type: "registry:example" },
+        {
+          path: "content/Preview/PreviewInputNumber.tsx",
+          type: "registry:example",
+        },
       ],
       component: PreviewInputNumber,
     },
@@ -1040,7 +1064,6 @@ export const Index: Record<string, any> = {
       component: PreviewSeparator,
     },
 
-
     SeparatorVerticalDemo: {
       name: "Separator",
       type: "registry:example",
@@ -1052,7 +1075,6 @@ export const Index: Record<string, any> = {
       ],
       component: PreviewSeparatorVertical,
     },
-
 
     SeparatorHorizontalDemo: {
       name: "Separator",

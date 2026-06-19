@@ -23,7 +23,12 @@ const PreviewCard = () => {
               </p>
 
               <div className="flex justify-center">
-                <ButtonRing size="sm" variant="success" className="my-2" RingOff={3000}>
+                <ButtonRing
+                  size="sm"
+                  variant="success"
+                  className="my-2"
+                  RingOff={3000}
+                >
                   Hire Me
                 </ButtonRing>
               </div>

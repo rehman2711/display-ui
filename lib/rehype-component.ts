@@ -1,10 +1,11 @@
 import fs from "fs"
 import { rehypeCode } from "fumadocs-core/mdx-plugins"
 import { Root } from "hast"
-import { UnistNode } from "@/types/unist"
 import { Processor, Transformer } from "unified"
 import { u } from "unist-builder"
 import { visit } from "unist-util-visit"
+
+import { UnistNode } from "@/types/unist"
 
 import { Index } from "../__registry__"
 import { styles } from "../registry/registry-styles"

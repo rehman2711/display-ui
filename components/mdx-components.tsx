@@ -16,9 +16,9 @@ import {
   TabsTrigger,
 } from "@/components/focus-tabs"
 
+import APITable from "./api-table"
 import { ComponentPreview } from "./component-preview"
 import { ComponentSource } from "./component-source"
-import APITable from "./api-table"
 
 const components = {
   ComponentSource,

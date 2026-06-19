@@ -1,8 +1,9 @@
-"use client";
+"use client"
 
-import { cn } from "@/registry/lib/utils";
-import { cva, VariantProps } from "class-variance-authority";
-import { ComponentProps, forwardRef } from "react";
+import { ComponentProps, forwardRef } from "react"
+import { cva, VariantProps } from "class-variance-authority"
+
+import { cn } from "@/registry/lib/utils"
 
 const inputStyles = cva(
   [
@@ -33,9 +34,9 @@ const inputStyles = cva(
       border: "none",
     },
   }
-);
+)
 
-type CalendarProps = ComponentProps<"input"> & VariantProps<typeof inputStyles>;
+type CalendarProps = ComponentProps<"input"> & VariantProps<typeof inputStyles>
 
 export const Calendar = forwardRef<HTMLInputElement, CalendarProps>(
   ({ border, className, ...props }, ref) => {
@@ -46,8 +47,8 @@ export const Calendar = forwardRef<HTMLInputElement, CalendarProps>(
         className={cn(inputStyles({ border }), className)}
         {...props}
       />
-    );
+    )
   }
-);
+)
 
-Calendar.displayName = "Calendar";
+Calendar.displayName = "Calendar"

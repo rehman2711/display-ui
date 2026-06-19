@@ -1,16 +1,17 @@
-"use client";
+"use client"
 
 import {
   ComponentProps,
-  ReactNode,
-  forwardRef,
   createContext,
+  forwardRef,
+  ReactNode,
   useContext,
-  useState,
   useEffect,
-} from "react";
-import { cva } from "class-variance-authority";
-import { cn } from "@/registry/lib/utils";
+  useState,
+} from "react"
+import { cva } from "class-variance-authority"
+
+import { cn } from "@/registry/lib/utils"
 
 // ---------------- Styles ----------------
 const drawerOverlay = cva(
@@ -20,7 +21,7 @@ const drawerOverlay = cva(
       open: { true: "opacity-100", false: "opacity-0 pointer-events-none" },
     },
   }
-);
+)
 
 const drawerContent = cva(
   "fixed bg-white dark:bg-[#0b090a] border-2 shadow-xl transition-transform duration-300 dark:text-white",
@@ -44,53 +45,53 @@ const drawerContent = cva(
       { side: "bottom", open: false, class: "translate-y-full" },
     ],
   }
-);
+)
 
 // ---------------- Context ----------------
-type DrawerSide = "left" | "right" | "top" | "bottom";
+type DrawerSide = "left" | "right" | "top" | "bottom"
 const DrawerCtx = createContext<{
-  open: boolean;
-  setOpen: (v: boolean) => void;
-  side: DrawerSide;
-} | null>(null);
+  open: boolean
+  setOpen: (v: boolean) => void
+  side: DrawerSide
+} | null>(null)
 
 function useDrawer() {
-  const ctx = useContext(DrawerCtx);
-  if (!ctx) throw new Error("Drawer components must be inside <Drawer.Main>");
-  return ctx;
+  const ctx = useContext(DrawerCtx)
+  if (!ctx) throw new Error("Drawer components must be inside <Drawer.Main>")
+  return ctx
 }
 
 // ---------------- Main ----------------
 type DrawerMainProps = ComponentProps<"div"> & {
-  defaultOpen?: boolean;
-  side?: DrawerSide;
-};
+  defaultOpen?: boolean
+  side?: DrawerSide
+}
 
 const DrawerMain = forwardRef<HTMLDivElement, DrawerMainProps>(
   ({ children, defaultOpen = false, side = "right" }, ref) => {
-    const [open, setOpen] = useState(defaultOpen);
+    const [open, setOpen] = useState(defaultOpen)
 
     useEffect(() => {
-      const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
-      window.addEventListener("keydown", onKey);
-      return () => window.removeEventListener("keydown", onKey);
-    }, []);
+      const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false)
+      window.addEventListener("keydown", onKey)
+      return () => window.removeEventListener("keydown", onKey)
+    }, [])
 
     return (
       <DrawerCtx.Provider value={{ open, setOpen, side }}>
         <div ref={ref}>{children}</div>
       </DrawerCtx.Provider>
-    );
+    )
   }
-);
-DrawerMain.displayName = "Drawer.Main";
+)
+DrawerMain.displayName = "Drawer.Main"
 
 // ---------------- Trigger ----------------
 const DrawerTrigger = forwardRef<
   HTMLButtonElement,
   ComponentProps<"button"> & { children?: ReactNode }
 >(({ children, className, ...props }, ref) => {
-  const { setOpen } = useDrawer();
+  const { setOpen } = useDrawer()
   return (
     <button
       ref={ref}
@@ -103,16 +104,16 @@ const DrawerTrigger = forwardRef<
     >
       {children}
     </button>
-  );
-});
-DrawerTrigger.displayName = "Drawer.Trigger";
+  )
+})
+DrawerTrigger.displayName = "Drawer.Trigger"
 
 // ---------------- Content ----------------
 const DrawerContent = forwardRef<
   HTMLDivElement,
   ComponentProps<"div"> & { children?: ReactNode }
 >(({ children, className, ...props }, ref) => {
-  const { open, setOpen, side } = useDrawer();
+  const { open, setOpen, side } = useDrawer()
   return (
     <div
       className={cn(drawerOverlay({ open }), "flex")}
@@ -127,17 +128,17 @@ const DrawerContent = forwardRef<
         {children}
       </div>
     </div>
-  );
-});
-DrawerContent.displayName = "Drawer.Content";
+  )
+})
+DrawerContent.displayName = "Drawer.Content"
 
 // ---------------- Subcomponents ----------------
 const DrawerHeader = ({
   children,
   className,
 }: {
-  children?: ReactNode;
-  className?: string;
+  children?: ReactNode
+  className?: string
 }) => (
   <div
     className={cn(
@@ -147,22 +148,22 @@ const DrawerHeader = ({
   >
     {children}
   </div>
-);
+)
 const DrawerBody = ({
   children,
   className,
 }: {
-  children?: ReactNode;
-  className?: string;
+  children?: ReactNode
+  className?: string
 }) => (
   <div className={cn("p-4 flex-1 overflow-auto", className)}>{children}</div>
-);
+)
 const DrawerFooter = ({
   children,
   className,
 }: {
-  children?: ReactNode;
-  className?: string;
+  children?: ReactNode
+  className?: string
 }) => (
   <div
     className={cn(
@@ -172,14 +173,14 @@ const DrawerFooter = ({
   >
     {children}
   </div>
-);
+)
 
 const DrawerClose = ({
   children,
   className,
   ...props
 }: ComponentProps<"button">) => {
-  const { setOpen } = useDrawer();
+  const { setOpen } = useDrawer()
   return (
     <button
       onClick={() => setOpen(false)}
@@ -191,8 +192,8 @@ const DrawerClose = ({
     >
       {children || "Close"}
     </button>
-  );
-};
+  )
+}
 
 // ---------------- Export ----------------
 export const Drawer = {
@@ -203,7 +204,7 @@ export const Drawer = {
   Body: DrawerBody,
   Footer: DrawerFooter,
   Close: DrawerClose,
-};
+}
 
 // ---------------- Example ----------------
 // export function DrawerExample() {

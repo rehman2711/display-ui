@@ -10,7 +10,7 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/Accordion.tsx",
@@ -26,7 +26,7 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/AlertDialog.tsx",
@@ -42,7 +42,7 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/Avatar.tsx",
@@ -58,7 +58,7 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/Badge.tsx",
@@ -74,7 +74,7 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/Breadcrumb.tsx",
@@ -90,7 +90,7 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/Button.tsx",
@@ -106,7 +106,7 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/ButtonRing.tsx",
@@ -122,7 +122,7 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/Calendar.tsx",
@@ -138,7 +138,7 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/Card.tsx",
@@ -159,12 +159,12 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/Carousel.tsx",
           "type": "registry:lib",
-          "target" : "components/display-ui/Carousel.tsx"
+          "target": "components/display-ui/Carousel.tsx"
         }
       ]
     },
@@ -175,12 +175,12 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/CheckBox.tsx",
           "type": "registry:lib",
-          "target" : "components/display-ui/CheckBox.tsx"
+          "target": "components/display-ui/CheckBox.tsx"
         }
       ]
     },
@@ -191,12 +191,12 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/Drawer.tsx",
           "type": "registry:lib",
-          "target" : "components/display-ui/Drawer.tsx"
+          "target": "components/display-ui/Drawer.tsx"
         }
       ]
     },
@@ -207,12 +207,12 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/DropdownMenu.tsx",
           "type": "registry:lib",
-          "target" : "components/display-ui/DropdownMenu.tsx"
+          "target": "components/display-ui/DropdownMenu.tsx"
         }
       ]
     },
@@ -223,12 +223,12 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/InfiniteCarousel.tsx",
           "type": "registry:lib",
-          "target" : "components/display-ui/InfiniteCarousel.tsx"
+          "target": "components/display-ui/InfiniteCarousel.tsx"
         }
       ]
     },
@@ -239,12 +239,12 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/Input.tsx",
           "type": "registry:lib",
-          "target" : "components/display-ui/Input.tsx"
+          "target": "components/display-ui/Input.tsx"
         }
       ]
     },
@@ -255,12 +255,12 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/InputOTP.tsx",
           "type": "registry:lib",
-          "target" : "components/display-ui/InputOTP.tsx"
+          "target": "components/display-ui/InputOTP.tsx"
         }
       ]
     },
@@ -271,12 +271,12 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/Label.tsx",
           "type": "registry:lib",
-          "target" : "components/display-ui/Label.tsx"
+          "target": "components/display-ui/Label.tsx"
         }
       ]
     },
@@ -287,12 +287,12 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/NavigationMenu.tsx",
           "type": "registry:lib",
-          "target" : "components/display-ui/NavigationMenu.tsx"
+          "target": "components/display-ui/NavigationMenu.tsx"
         }
       ]
     },
@@ -303,12 +303,12 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/NavigationMenuMac.tsx",
           "type": "registry:lib",
-          "target" : "components/display-ui/NavigationMenuMac.tsx"
+          "target": "components/display-ui/NavigationMenuMac.tsx"
         }
       ]
     },
@@ -319,12 +319,12 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/RadioGroups.tsx",
           "type": "registry:lib",
-          "target" : "components/display-ui/RadioGroups.tsx"
+          "target": "components/display-ui/RadioGroups.tsx"
         }
       ]
     },
@@ -335,12 +335,12 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/Separator.tsx",
           "type": "registry:lib",
-          "target" : "components/display-ui/Separator.tsx"
+          "target": "components/display-ui/Separator.tsx"
         }
       ]
     },
@@ -351,12 +351,12 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/Table.tsx",
           "type": "registry:lib",
-          "target" : "components/display-ui/Table.tsx"
+          "target": "components/display-ui/Table.tsx"
         }
       ]
     },
@@ -367,12 +367,12 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/Toaster.tsx",
           "type": "registry:lib",
-          "target" : "components/display-ui/Toaster.tsx"
+          "target": "components/display-ui/Toaster.tsx"
         }
       ]
     },
@@ -383,12 +383,12 @@
       "files": [
         {
           "path": "lib/utils.ts",
-         "type": "registry:lib"
+          "type": "registry:lib"
         },
         {
           "path": "registry/default/displayui/Tooltip.tsx",
           "type": "registry:lib",
-          "target" : "components/display-ui/Tooltip.tsx"
+          "target": "components/display-ui/Tooltip.tsx"
         }
       ]
     }

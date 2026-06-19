@@ -1,10 +1,11 @@
-"use client";
+"use client"
 
-import { ComponentProps, forwardRef, ReactNode } from "react";
-import { cn } from "@/registry/lib/utils";
+import { ComponentProps, forwardRef, ReactNode } from "react"
+
+import { cn } from "@/registry/lib/utils"
 
 // ---------- Tooltip Root ----------
-type TooltipRootProps = ComponentProps<"div"> & { children: ReactNode };
+type TooltipRootProps = ComponentProps<"div"> & { children: ReactNode }
 
 const TooltipRoot = forwardRef<HTMLDivElement, TooltipRootProps>(
   ({ className, children, ...props }, ref) => {
@@ -16,13 +17,13 @@ const TooltipRoot = forwardRef<HTMLDivElement, TooltipRootProps>(
       >
         {children}
       </div>
-    );
+    )
   }
-);
-TooltipRoot.displayName = "TooltipRoot";
+)
+TooltipRoot.displayName = "TooltipRoot"
 
 // ---------- Tooltip Trigger ----------
-type TooltipTriggerProps = ComponentProps<"span"> & { children: ReactNode };
+type TooltipTriggerProps = ComponentProps<"span"> & { children: ReactNode }
 
 const TooltipTrigger = forwardRef<HTMLSpanElement, TooltipTriggerProps>(
   ({ className, children, ...props }, ref) => {
@@ -30,16 +31,16 @@ const TooltipTrigger = forwardRef<HTMLSpanElement, TooltipTriggerProps>(
       <span className={cn("cursor-pointer", className)} ref={ref} {...props}>
         {children}
       </span>
-    );
+    )
   }
-);
-TooltipTrigger.displayName = "TooltipTrigger";
+)
+TooltipTrigger.displayName = "TooltipTrigger"
 
 // ---------- Tooltip Content ----------
 type TooltipContentProps = ComponentProps<"div"> & {
-  content: ReactNode;
-  position?: "top" | "bottom" | "left" | "right" | "simple";
-};
+  content: ReactNode
+  position?: "top" | "bottom" | "left" | "right" | "simple"
+}
 
 const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
   ({ className, content, position = "top", ...props }, ref) => {
@@ -49,7 +50,7 @@ const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
       left: "right-full top-1/2 -translate-y-1/2 mr-2",
       right: "left-full top-1/2 -translate-y-1/2 ml-2",
       simple: "",
-    };
+    }
 
     const arrowClasses = {
       top: "after:border-t-black dark:after:border-t-white after:border-t-[6px] after:border-x-transparent after:border-x-[6px] after:absolute after:bottom-[-5px] after:left-1/2 after:-translate-x-1/2",
@@ -59,7 +60,7 @@ const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
       right:
         "after:border-r-black dark:after:border-r-white after:border-r-[6px] after:border-y-transparent after:border-y-[6px] after:absolute after:left-[-5px] after:top-1/2 after:-translate-y-1/2",
       simple: "bottom-full left-1/2 -translate-x-1/2 mb-2",
-    };
+    }
 
     return (
       <div
@@ -74,15 +75,15 @@ const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
       >
         {content}
       </div>
-    );
+    )
   }
-);
+)
 
-TooltipContent.displayName="TooltipContent"
+TooltipContent.displayName = "TooltipContent"
 
 // ---------- Export ----------
 export const Tooltip = {
   Root: TooltipRoot,
   Trigger: TooltipTrigger,
   Content: TooltipContent,
-};
+}

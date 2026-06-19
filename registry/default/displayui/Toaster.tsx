@@ -1,47 +1,48 @@
-"use client";
+"use client"
 
 import {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  ReactNode,
-  forwardRef,
   ButtonHTMLAttributes,
-} from "react";
-import { cn } from "@/registry/lib/utils";
-import { CheckCircle, XCircle, Info, AlertTriangle } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+  createContext,
+  forwardRef,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react"
+import { AnimatePresence, motion } from "framer-motion"
+import { AlertTriangle, CheckCircle, Info, XCircle } from "lucide-react"
+
+import { cn } from "@/registry/lib/utils"
 
 // ---------------- Types ----------------
 interface Toast {
-  id: number;
-  message: string;
-  toastType: "success" | "error" | "info" | "warning";
-  position?: "top-right" | "top-left" | "bottom-right" | "bottom-left";
-  duration?: number;
+  id: number
+  message: string
+  toastType: "success" | "error" | "info" | "warning"
+  position?: "top-right" | "top-left" | "bottom-right" | "bottom-left"
+  duration?: number
 }
 
 interface ToastContextProps {
-  showToast: (toast: Omit<Toast, "id">) => void;
+  showToast: (toast: Omit<Toast, "id">) => void
 }
 
 // ---------------- Context ----------------
-const ToasterCtx = createContext<ToastContextProps | null>(null);
+const ToasterCtx = createContext<ToastContextProps | null>(null)
 
 export function useToast() {
-  const ctx = useContext(ToasterCtx);
-  if (!ctx) throw new Error("useToast must be used inside <Toaster.Main>");
-  return ctx;
+  const ctx = useContext(ToasterCtx)
+  if (!ctx) throw new Error("useToast must be used inside <Toaster.Main>")
+  return ctx
 }
 
 // ---------------- Main ----------------
 interface ToasterMainProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export const ToasterMain = ({ children }: ToasterMainProps) => {
-  const [toasts, setToasts] = useState<Toast[]>([]);
+  const [toasts, setToasts] = useState<Toast[]>([])
 
   const showToast = ({
     message,
@@ -49,22 +50,22 @@ export const ToasterMain = ({ children }: ToasterMainProps) => {
     position = "top-right",
     duration = 3000,
   }: Omit<Toast, "id">) => {
-    const id = Date.now();
-    const newToast = { id, message, toastType, position, duration };
-    setToasts((prev) => [...prev, newToast]);
+    const id = Date.now()
+    const newToast = { id, message, toastType, position, duration }
+    setToasts((prev) => [...prev, newToast])
 
     setTimeout(() => {
-      setToasts((prev) => prev.filter((t) => t.id !== id));
-    }, duration + 300);
-  };
+      setToasts((prev) => prev.filter((t) => t.id !== id))
+    }, duration + 300)
+  }
 
   return (
     <ToasterCtx.Provider value={{ showToast }}>
       {children}
       {/* Floating toasts container */}
       {["top-right", "top-left", "bottom-right", "bottom-left"].map((pos) => {
-        const filtered = toasts.filter((t) => t.position === pos);
-        if (!filtered.length) return null;
+        const filtered = toasts.filter((t) => t.position === pos)
+        if (!filtered.length) return null
         return (
           <div
             key={pos}
@@ -80,12 +81,12 @@ export const ToasterMain = ({ children }: ToasterMainProps) => {
               ))}
             </AnimatePresence>
           </div>
-        );
+        )
       })}
     </ToasterCtx.Provider>
-  );
-};
-ToasterMain.displayName = "Toaster.Main";
+  )
+}
+ToasterMain.displayName = "Toaster.Main"
 
 // ---------------- Item ----------------
 const ToasterItem = ({
@@ -94,47 +95,47 @@ const ToasterItem = ({
   position = "top-right",
   duration = 3000,
 }: Toast) => {
-  const [progress, setProgress] = useState(100);
+  const [progress, setProgress] = useState(100)
 
   // Progress bar
   useEffect(() => {
     const interval = setInterval(() => {
-      setProgress((p) => (p > 0 ? p - 100 / (duration / 100) : 0));
-    }, 100);
-    return () => clearInterval(interval);
-  }, [duration]);
+      setProgress((p) => (p > 0 ? p - 100 / (duration / 100) : 0))
+    }, 100)
+    return () => clearInterval(interval)
+  }, [duration])
 
   const icons = {
     success: <CheckCircle size={20} />,
     error: <XCircle size={20} />,
     info: <Info size={20} />,
     warning: <AlertTriangle size={20} />,
-  };
+  }
 
   // Motion animation based on position
   const motionVariants = {
     initial: {},
     animate: { opacity: 1, x: 0, y: 0, scale: 1 },
     exit: {},
-  };
+  }
 
   switch (position) {
     case "top-right":
-      motionVariants.initial = { opacity: 0, x: 100, y: -20, scale: 0.8 };
-      motionVariants.exit = { opacity: 0, x: 100, y: -20, scale: 0.8 };
-      break;
+      motionVariants.initial = { opacity: 0, x: 100, y: -20, scale: 0.8 }
+      motionVariants.exit = { opacity: 0, x: 100, y: -20, scale: 0.8 }
+      break
     case "top-left":
-      motionVariants.initial = { opacity: 0, x: -100, y: -20, scale: 0.8 };
-      motionVariants.exit = { opacity: 0, x: -100, y: -20, scale: 0.8 };
-      break;
+      motionVariants.initial = { opacity: 0, x: -100, y: -20, scale: 0.8 }
+      motionVariants.exit = { opacity: 0, x: -100, y: -20, scale: 0.8 }
+      break
     case "bottom-right":
-      motionVariants.initial = { opacity: 0, x: 100, y: 20, scale: 0.8 };
-      motionVariants.exit = { opacity: 0, x: 100, y: 20, scale: 0.8 };
-      break;
+      motionVariants.initial = { opacity: 0, x: 100, y: 20, scale: 0.8 }
+      motionVariants.exit = { opacity: 0, x: 100, y: 20, scale: 0.8 }
+      break
     case "bottom-left":
-      motionVariants.initial = { opacity: 0, x: -100, y: 20, scale: 0.8 };
-      motionVariants.exit = { opacity: 0, x: -100, y: 20, scale: 0.8 };
-      break;
+      motionVariants.initial = { opacity: 0, x: -100, y: 20, scale: 0.8 }
+      motionVariants.exit = { opacity: 0, x: -100, y: 20, scale: 0.8 }
+      break
   }
 
   return (
@@ -162,17 +163,17 @@ const ToasterItem = ({
         style={{ width: `${progress}%` }}
       />
     </motion.div>
-  );
-};
+  )
+}
 
 // ---------------- Trigger ----------------
 interface ToasterTriggerProps
   extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "type"> {
-  message: string;
-  toastType?: "success" | "error" | "info" | "warning";
-  position?: "top-right" | "top-left" | "bottom-right" | "bottom-left";
-  duration?: number;
-  children: ReactNode;
+  message: string
+  toastType?: "success" | "error" | "info" | "warning"
+  position?: "top-right" | "top-left" | "bottom-right" | "bottom-left"
+  duration?: number
+  children: ReactNode
 }
 
 export const ToasterTrigger = forwardRef<
@@ -191,7 +192,7 @@ export const ToasterTrigger = forwardRef<
     },
     ref
   ) => {
-    const { showToast } = useToast();
+    const { showToast } = useToast()
     return (
       <button
         ref={ref}
@@ -201,13 +202,13 @@ export const ToasterTrigger = forwardRef<
       >
         {children}
       </button>
-    );
+    )
   }
-);
-ToasterTrigger.displayName = "Toaster.Trigger";
+)
+ToasterTrigger.displayName = "Toaster.Trigger"
 
 // ---------------- Export ----------------
 export const Toaster = {
   Main: ToasterMain,
   Trigger: ToasterTrigger,
-};
+}

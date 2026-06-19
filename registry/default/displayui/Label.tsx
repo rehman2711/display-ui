@@ -1,9 +1,10 @@
-"use client";
+"use client"
 
-import { ComponentProps, forwardRef } from "react";
-import { cn } from "@/registry/lib/utils";
+import { ComponentProps, forwardRef } from "react"
 
-type LabelProps = ComponentProps<"label">;
+import { cn } from "@/registry/lib/utils"
+
+type LabelProps = ComponentProps<"label">
 
 export const Label = forwardRef<HTMLLabelElement, LabelProps>(
   ({ className, ...props }, ref) => {
@@ -13,8 +14,8 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>(
         {...props}
         ref={ref}
       />
-    );
+    )
   }
-);
+)
 
-Label.displayName="Label"
+Label.displayName = "Label"

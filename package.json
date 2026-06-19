@@ -11,8 +11,8 @@
     "postinstall": "fumadocs-mdx",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "start": "next start",
-    "registry:build": "shadcn build"
+    "registry:build": "shadcn build",
+    "start": "next start"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.2",

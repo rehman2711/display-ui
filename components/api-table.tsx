@@ -18,7 +18,10 @@ interface APITableProps extends React.HTMLAttributes<HTMLDivElement> {
 export function APITable({ data = [], className, ...props }: APITableProps) {
   if (!data || data.length === 0) {
     return (
-      <div className={cn("text-sm text-muted-foreground", className)} {...props}>
+      <div
+        className={cn("text-sm text-muted-foreground", className)}
+        {...props}
+      >
         No API data available.
       </div>
     )
@@ -38,7 +41,9 @@ export function APITable({ data = [], className, ...props }: APITableProps) {
         <tbody>
           {data.map((row) => (
             <tr key={row.attribute} className="odd:bg-muted/30 even:bg-white/5">
-              <td className="px-3 py-2 align-top font-medium">{row.attribute}</td>
+              <td className="px-3 py-2 align-top font-medium">
+                {row.attribute}
+              </td>
               <td className="px-3 py-2 align-top text-muted-foreground">
                 <code>{row.type}</code>
               </td>

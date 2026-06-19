@@ -8,16 +8,16 @@ const PreviewBadgeDanger = () => {
           <b>Badge</b>
         </Badge>
         <Badge variant="danger" radius="sm">
-        Badge
+          Badge
         </Badge>
         <Badge variant="danger" radius="md">
-        Badge
+          Badge
         </Badge>
         <Badge variant="danger" radius="lg">
-        Badge
+          Badge
         </Badge>
         <Badge variant="danger" radius="pill">
-        Badge
+          Badge
         </Badge>
       </div>
     </>

@@ -6,15 +6,15 @@ const PreviewInput = () => {
     <>
       <div className="flex flex-col gap-4 justify-center items-center w-1/4">
         <div>
-          <Label className="text-sm font-bold" >Input Text :</Label>
+          <Label className="text-sm font-bold">Input Text :</Label>
           <Input border="primary" type="text" placeholder="Enter Any Text" />
         </div>
         <div>
-          <Label className="text-sm font-bold" >Input Email :</Label>
+          <Label className="text-sm font-bold">Input Email :</Label>
           <Input border="primary" type="email" placeholder="Enter Your Email" />
         </div>
         <div>
-          <Label className="text-sm font-bold" >Input Password :</Label>
+          <Label className="text-sm font-bold">Input Password :</Label>
           <Input
             border="primary"
             type="password"
@@ -22,7 +22,7 @@ const PreviewInput = () => {
           />
         </div>
         <div>
-          <Label className="text-sm font-bold" >Input Number :</Label>
+          <Label className="text-sm font-bold">Input Number :</Label>
           <Input
             border="primary"
             type="number"

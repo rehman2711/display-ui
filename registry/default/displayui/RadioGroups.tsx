@@ -1,22 +1,23 @@
-"use client";
+"use client"
 
-import { ComponentProps, forwardRef, ReactNode } from "react";
-import { cva, VariantProps } from "class-variance-authority";
-import { cn } from "@/registry/lib/utils";
+import { ComponentProps, forwardRef, ReactNode } from "react"
+import { cva, VariantProps } from "class-variance-authority"
 
-type RadioGroupProps = ComponentProps<"div"> & { children?: ReactNode };
+import { cn } from "@/registry/lib/utils"
+
+type RadioGroupProps = ComponentProps<"div"> & { children?: ReactNode }
 
 export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
   ({ className, children, ...props }, ref) => {
     return (
-      <div ref={ref} className={cn("w-full",className)} {...props}>
+      <div ref={ref} className={cn("w-full", className)} {...props}>
         {children}
       </div>
-    );
+    )
   }
-);
+)
 
-RadioGroup.displayName="RadioGroup"
+RadioGroup.displayName = "RadioGroup"
 
 const radioVariant = cva(["text-lg"], {
   variants: {
@@ -30,9 +31,9 @@ const radioVariant = cva(["text-lg"], {
   defaultVariants: {
     variant: "default",
   },
-});
+})
 
-type InputProps = ComponentProps<"input"> & VariantProps<typeof radioVariant>;
+type InputProps = ComponentProps<"input"> & VariantProps<typeof radioVariant>
 
 export const RadioItem = forwardRef<HTMLInputElement, InputProps>(
   ({ variant, className, ...props }, ref) => {
@@ -43,8 +44,8 @@ export const RadioItem = forwardRef<HTMLInputElement, InputProps>(
         className={cn(radioVariant({ variant }), className)}
         {...props}
       />
-    );
+    )
   }
-);
+)
 
-RadioItem.displayName="RadioItem"
+RadioItem.displayName = "RadioItem"
